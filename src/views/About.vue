@@ -1,5 +1,14 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<template lang="pug">
+.about
+  h1
+    | About
+  p
+    | How did you find here?
+  p
+    | Made with ❤️️ by Delton
 </template>
+
+<style lang="stylus" scoped>
+.about
+  text-align center
+</style>
