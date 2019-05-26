@@ -41,7 +41,7 @@ export default class CreateExperiment extends Vue {
     }
 
     try {
-      await this.restClient.create(`/experiments/${this.service}`, {
+      await this.restClient.create(`experiments/${this.service}`, {
         username: this.username,
       });
       this.$emit('created', this.username);

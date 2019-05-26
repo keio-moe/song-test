@@ -87,7 +87,7 @@ export default class Copyright extends Vue {
     const query: string = queryString.stringify({
       username: this.username,
     });
-    const resp = await this.restClient.get<Entry<CopyrightEntry>>(`/experiments/${this.service}?${query}`);
+    const resp = await this.restClient.get<Entry<CopyrightEntry>>(`experiments/${this.service}?${query}`);
     if (resp.statusCode === 404) {
       this.stage = 2;
       return;
@@ -97,7 +97,7 @@ export default class Copyright extends Vue {
   }
 
   private async onSubmit() {
-    await this.restClient.replace(`/experiments/${this.service}`, {
+    await this.restClient.replace(`experiments/${this.service}`, {
       username: this.username,
       id: this.entityId,
       similarity: this.similarity,
