@@ -1,0 +1,15 @@
+export default {
+  cancel: 'キャンセル',
+  copyrightWorkshop: '知的財産権実験（ワークショップ）',
+  continue: '続く',
+  experimentFinished: '実験が終わりました。',
+  home: 'ホーム',
+  infringe: '侵害する',
+  records: '録音',
+  similarity: '類似性',
+  submit: '提出する',
+  username: 'ID',
+  usernameAlert: 'ID を入力してください。',
+  usernamePrompt: 'ID を入力してください。',
+  usernameConflict: 'Username Exsisted. Do you want to Continue previous Experiment?',
+};

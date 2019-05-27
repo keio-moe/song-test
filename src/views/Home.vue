@@ -2,7 +2,7 @@
 .home
   .routes
     a.route(v-for="route in routes", :href="route.src")
-      | {{ route.title }}
+      | {{ $t(route.title) }}
 </template>
 
 <script lang="ts">
@@ -19,7 +19,7 @@ interface RouteDefinition {
 export default class Home extends Vue {
   private routes: RouteDefinition[] = [
     {
-      title: 'Copyright Experiment (Workshop)',
+      title: 'copyrightWorkshop',
       src: '/experiments/copyright/workshop',
     },
     // {

@@ -2,11 +2,11 @@
 .create-experiment
   el-card.card
     el-form(label-width="80px")
-      el-form-item(label="Username")
-        el-input(placeholder="Set a unique username", v-model="username")
+      el-form-item(:label="$t('username')")
+        el-input(:placeholder="$t('usernamePrompt')", v-model="username")
       el-form-item
         el-button(type="primary", @click="onSubmit")
-          | Submit
+          | {{ $t("submit") }}
 </template>
 
 <script lang="ts">
@@ -34,7 +34,7 @@ export default class CreateExperiment extends Vue {
     if (this.username.length === 0) {
       // Empty Username
       Message({
-        message: 'You Must Have a Username to Continue',
+        message: this.$t('usernameAlert') as string,
         type: 'error',
       });
       return;
@@ -47,9 +47,9 @@ export default class CreateExperiment extends Vue {
       this.$emit('created', this.username);
     } catch (err) {
       if (err.statusCode === 409) {
-        MessageBox.confirm('Username Exsisted. Do you want to Continue previous Experiment?', 'Continue', {
-          confirmButtonText: 'Continue',
-          cancelButtonText: 'Cancel',
+        MessageBox.confirm(this.$t('usernameConflict') as string, this.$t('continue') as string, {
+          confirmButtonText: this.$t('continue') as string,
+          cancelButtonText: this.$t('cancel') as string,
           type: 'warning',
         }).then(() => {
           this.$emit('created', this.username);
@@ -66,6 +66,6 @@ export default class CreateExperiment extends Vue {
 
 <style lang="stylus" scoped>
 .card
-  width 50%
-  margin 0 25%
+  width 70%
+  margin 0 15%
 </style>

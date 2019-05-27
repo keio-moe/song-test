@@ -2,14 +2,35 @@
 #app
   #nav
     router-link(to='/')
-      | Home
+      | {{ $t("home") }}
+    el-select.select(placeholder="🌐 Select Language", v-model="lang", @change="onLanguageChange")
+      el-option(label="English", value="en-us")
+      el-option(label="हिंदी", value="hi-in")
+      el-option(label="日本語", value="ja-jp")
+      el-option(label="简体中文", value="zh-cn")
+      el-option(label="繁體中文", value="zh-tw")
   router-view
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
+import { Select, Option } from 'element-ui';
 
-export default class App extends Vue {}
+@Component({
+  name: 'App',
+  components: {
+    'el-select': Select,
+    'el-option': Option,
+  },
+})
+export default class App extends Vue {
+  private lang: string = '';
+
+  private onLanguageChange() {
+    this.$i18n.locale = this.lang;
+    window.localStorage.setItem('language', this.lang);
+  }
+}
 </script>
 
 <style lang="stylus">
@@ -26,4 +47,7 @@ export default class App extends Vue {}
     color #2c3e50
     &.router-link-exact-active
       color #42b983
+
+.select
+  margin 0 0 0 20px
 </style>

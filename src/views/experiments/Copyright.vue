@@ -3,20 +3,20 @@
   create-experiment(:service="service", v-if="stage === 0", @created="experimentCreated")
   el-card.experiment(v-if="stage === 1")
     el-form(label-width="80px")
-      el-form-item(label="Records")
+      el-form-item(:label="$t('records')")
         div(v-for="wav in wavs" :key="wav")
           audio(controls)
             source(:src="wav" type="audio/mpeg")
-      el-form-item(label="Similarity")
+      el-form-item(:label="$t('similarity')")
         el-slider(v-model="similarity")
-      el-form-item(label="Infringe")
+      el-form-item(:label="$t('infringe')")
         el-checkbox(v-model="infringe")
-          | Infringe
+          | {{ $t('infringe') }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
-          | Submit
+          | {{ $t('submit') }}
   h2.finish(v-if="stage === 2")
-    | Experiment Finished
+    | {{ $t('experimentFinished') }}
 </template>
 
 <script lang="ts">
@@ -110,8 +110,8 @@ export default class Copyright extends Vue {
 
 <style lang="stylus" scoped>
 .experiment
-  width 50%
-  margin 0 25%
+  width 70%
+  margin 0 15%
 .finish
   text-align center
   margin-top 200px

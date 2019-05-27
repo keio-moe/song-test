@@ -1,0 +1,15 @@
+export default {
+  cancel: '取消',
+  copyrightWorkshop: '智慧財產權實驗 (Workshop)',
+  continue: '繼續',
+  experimentFinished: '實驗已完成',
+  home: '首頁',
+  infringe: '涉嫌剽竊',
+  records: '錄音檔',
+  similarity: '相似度',
+  submit: '提交',
+  username: '代號',
+  usernameAlert: '請輸入代號以繼續',
+  usernamePrompt: '請爲自己設置一個獨一無二的代號',
+  usernameConflict: '代號已存在，是否繼續未完成的實驗？',
+};
