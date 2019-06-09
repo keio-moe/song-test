@@ -13,11 +13,11 @@
             audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
         el-form-item(:label="$t('lyrics')", v-if="lyrics.length > 0")
-          div(v-for="lyric in lyrics" :key="lyric")
+          div(v-for="lyric in lyrics" :key="lyric.label")
             p.label
               | {{ lyric.label }}:
-            p
-              | {{ lyric.entity }}
+            p(style="white-space: pre-line;")
+              | {{ fullLyrics[lyric.entity] }}
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('similarity')")
         div(:style="{display: 'flex'}")
@@ -42,6 +42,7 @@ import { Button, Card, Form, FormItem, Input, Progress, Slider, Switch } from 'e
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
+import fullLyrics from '@/assets/copyrigh_lyrics';
 
 
 interface Entry<T> {
@@ -81,6 +82,7 @@ export default class Copyright extends Vue {
   private service: string = '';
   private username: string = '';
   private stage: number = 0;
+  private fullLyrics = fullLyrics;
 
   private progress: number = 0;
   private wavs: Array<Labeled<string>> = [];

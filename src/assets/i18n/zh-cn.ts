@@ -8,7 +8,7 @@ export default {
   home: '首页',
   identical: '相同',
   infringe: '涉嫌抄袭',
-  lyrics: 'Lyrics',
+  lyrics: '歌词',
   notInfringe: '不涉嫌抄袭',
   progress: '进度',
   records: '录音',
