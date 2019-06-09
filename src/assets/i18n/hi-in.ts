@@ -1,17 +1,3 @@
 export default {
-  cancel: 'Cancel',
-  copyrightWorkshop: 'Copyright Experiment (Workshop)',
-  copyrightFull: 'Copyright Experiment (Full)',
-  continue: 'Continue',
-  experimentFinished: 'Experiment Finished',
   home: 'हअउमपेइज्',
-  infringe: 'Infringe',
-  notInfringe: 'Not Infringe',
-  records: 'Records',
-  similarity: 'Similarity',
-  submit: 'Submit',
-  username: 'Username',
-  usernameAlert: 'You Must Have a Username to Continue.',
-  usernamePrompt: 'Pick Your Unique Username',
-  usernameConflict: 'Username Exsisted. Do you want to Continue previous Experiment?',
 };

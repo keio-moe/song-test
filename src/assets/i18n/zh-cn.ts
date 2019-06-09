@@ -18,4 +18,5 @@ export default {
   usernameAlert: '你必须输入用户名才能继续',
   usernamePrompt: '请设置一个独一无二的用户名',
   usernameConflict: '用户名已存在，你是否想要继续未完成的实验？',
+  worldMusic: '世界音乐实验',
 };

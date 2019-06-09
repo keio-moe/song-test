@@ -18,4 +18,5 @@ export default {
   usernameAlert: 'You Must Have a Username to Continue.',
   usernamePrompt: 'Pick Your Unique Username',
   usernameConflict: 'Username Exsisted. Do you want to Continue previous Experiment?',
+  worldMusic: 'World Music Experiment',
 };

@@ -26,6 +26,10 @@ export default class Home extends Vue {
       title: 'copyrightFull',
       src: '/experiments/copyright/full',
     },
+    {
+      title: 'worldMusic',
+      src: '/experiments/worldmusic/evaluation',
+    },
   ];
 }
 </script>
