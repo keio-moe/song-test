@@ -22,10 +22,10 @@ export default class Home extends Vue {
       title: 'copyrightWorkshop',
       src: '/experiments/copyright/workshop',
     },
-    // {
-    //   title: 'Copyright Experiment (Full)',
-    //   src: '/experiments/copyright/full',
-    // },
+    {
+      title: 'copyrightFull',
+      src: '/experiments/copyright/full',
+    },
   ];
 }
 </script>

@@ -1,10 +1,12 @@
 export default {
   cancel: 'キャンセル',
   copyrightWorkshop: '知的財産権実験（ワークショップ）',
+  copyrightFull: '知的財産権実験（完全版）',
   continue: '続く',
   experimentFinished: '実験が終わりました。',
   home: 'ホーム',
   infringe: '侵害する',
+  notInfringe: '侵害しない',
   records: '録音',
   similarity: '類似性',
   submit: '提出する',

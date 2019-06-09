@@ -1,10 +1,12 @@
 export default {
   cancel: 'Cancel',
   copyrightWorkshop: 'Copyright Experiment (Workshop)',
+  copyrightFull: 'Copyright Experiment (Full)',
   continue: 'Continue',
   experimentFinished: 'Experiment Finished',
-  home: 'Home',
+  home: 'हअउमपेइज्',
   infringe: 'Infringe',
+  notInfringe: 'Not Infringe',
   records: 'Records',
   similarity: 'Similarity',
   submit: 'Submit',

@@ -2,16 +2,33 @@
 .copyright
   create-experiment(:service="service", v-if="stage === 0", @created="experimentCreated")
   el-card.experiment(v-if="stage === 1")
-    el-form(label-width="80px")
-      el-form-item(:label="$t('records')")
-        div(v-for="wav in wavs" :key="wav")
-          audio(controls)
-            source(:src="wav" type="audio/mpeg")
+    div(slot="header", class="clearfix")
+      el-form(label-width="80px", label-position="top")
+        el-form-item(:label="$t('progress')")
+          el-progress.progress(:text-inside="true", :stroke-width="18", :percentage="Number((progress * 100).toFixed(2))")
+        el-form-item(:label="$t('records')", v-if="wavs.length > 0")
+          div(v-for="wav in wavs" :key="wav.label")
+            p.label
+              | {{ wav.label }}:
+            audio(controls)
+              source(:src="wav.entity" type="audio/mpeg")
+        el-form-item(:label="$t('lyrics')", v-if="lyrics.length > 0")
+          div(v-for="lyric in lyrics" :key="lyric")
+            p.label
+              | {{ lyric.label }}:
+            p
+              | {{ lyric.entity }}
+    el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('similarity')")
-        el-slider(v-model="similarity")
+        div(:style="{display: 'flex'}")
+          span
+            | {{ $t('different') }}
+          el-slider.similarity(v-model="similarity", :style="{flex: 1}")
+          span
+            | {{ $t('identical') }}
+        div(style="margin: 20px 0;")
       el-form-item(:label="$t('infringe')")
-        el-checkbox(v-model="infringe")
-          | {{ $t('infringe') }}
+        el-switch(v-model="infringe", :active-text="$t('infringe')", :inactive-text="$t('notInfringe')")
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -21,7 +38,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Button, Card, Checkbox, Form, FormItem, Input, Slider } from 'element-ui';
+import { Button, Card, Form, FormItem, Input, Progress, Slider, Switch } from 'element-ui';
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
@@ -32,8 +49,15 @@ interface Entry<T> {
   data: T;
 }
 
+interface Labeled<T> {
+  label: string;
+  entity: T;
+}
+
 interface CopyrightEntry {
-  wavs: string[];
+  progress: number;
+  wavs: Array<Labeled<string>>;
+  lyrics: Array<Labeled<string>>;
   id: number;
 }
 
@@ -43,11 +67,12 @@ interface CopyrightEntry {
     'create-experiment': () => import('@/components/CreateExperiment.vue'),
     'el-button': Button,
     'el-card': Card,
-    'el-checkbox': Checkbox,
     'el-form': Form,
     'el-form-item': FormItem,
     'el-input': Input,
+    'el-progress': Progress,
     'el-slider': Slider,
+    'el-switch': Switch,
   },
 })
 
@@ -57,7 +82,9 @@ export default class Copyright extends Vue {
   private username: string = '';
   private stage: number = 0;
 
-  private wavs: string[] = [];
+  private progress: number = 0;
+  private wavs: Array<Labeled<string>> = [];
+  private lyrics: Array<Labeled<string>> = [];
   private entityId: number = 0;
   private similarity: number = 50;
   private infringe: boolean = false;
@@ -69,6 +96,9 @@ export default class Copyright extends Vue {
     switch (this.subtype) {
       case 'workshop':
         this.service = 'copyright_workshop';
+        break;
+      case 'full':
+        this.service = 'copyright_full';
         break;
       default:
         this.service = '';
@@ -92,6 +122,8 @@ export default class Copyright extends Vue {
       this.stage = 2;
       return;
     }
+    this.progress = resp.result!.data.progress;
+    this.lyrics = resp.result!.data.lyrics;
     this.wavs = resp.result!.data.wavs;
     this.entityId = resp.result!.data.id;
   }
@@ -115,4 +147,10 @@ export default class Copyright extends Vue {
 .finish
   text-align center
   margin-top 200px
+.similarity
+  padding 0 5%
+.progress
+  margin-top 12px
+.label
+  font-weight bold
 </style>

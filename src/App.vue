@@ -5,7 +5,7 @@
       | {{ $t("home") }}
     el-select.select(placeholder="🌐 Select Language", v-model="lang", @change="onLanguageChange")
       el-option(label="English", value="en-us")
-      el-option(label="हिंदी", value="hi-in")
+      el-option(label="हिंदी (WIP)", value="hi-in")
       el-option(label="日本語", value="ja-jp")
       el-option(label="简体中文", value="zh-cn")
       el-option(label="繁體中文", value="zh-tw")

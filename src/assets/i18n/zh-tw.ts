@@ -1,10 +1,12 @@
 export default {
   cancel: '取消',
   copyrightWorkshop: '智慧財產權實驗 (Workshop)',
+  copyrightFull: '智慧財產權實驗 (Full)',
   continue: '繼續',
   experimentFinished: '實驗已完成',
   home: '首頁',
   infringe: '涉嫌剽竊',
+  notInfringe: '不涉嫌剽竊',
   records: '錄音檔',
   similarity: '相似度',
   submit: '提交',
