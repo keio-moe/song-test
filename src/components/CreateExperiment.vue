@@ -41,9 +41,16 @@ export default class CreateExperiment extends Vue {
     }
 
     try {
-      await this.restClient.create(`experiments/${this.service}`, {
+      const res = await this.restClient.create(`experiments/${this.service}`, {
         username: this.username,
       });
+      if (res.statusCode === 404) {
+        Message({
+          message: this.$t('requirementsNotMatch') as string,
+          type: 'error',
+        });
+        return;
+      }
       this.$emit('created', this.username);
     } catch (err) {
       if (err.statusCode === 409) {

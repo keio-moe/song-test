@@ -7,27 +7,26 @@
         el-form-item(:label="$t('progress')")
           el-progress.progress(:text-inside="true", :stroke-width="18", :percentage="Number((progress * 100).toFixed(2))")
         el-form-item(:label="$t('records')", v-if="wavs.length > 0")
-          div(v-for="wav in wavs" :key="wav.label")
+          div(v-for="wav in wavs" :key="wav.entity")
             p.label
               | {{ wav.label }}:
             audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
         el-form-item(:label="$t('lyrics')", v-if="lyrics.length > 0")
-          div(v-for="lyric in lyrics" :key="lyric.label")
+          div(v-for="lyric in lyrics" :key="lyric.entity")
             p.label
               | {{ lyric.label }}:
             p(style="white-space: pre-line;")
               | {{ fullLyrics[lyric.entity] }}
     el-form(label-width="80px", label-position="top")
-      el-form-item(:label="$t('similarity')")
+      el-form-item(:label="$t('similarityQuestion')")
         div(:style="{display: 'flex'}")
           span
             | {{ $t('different') }}
           el-slider.similarity(v-model="similarity", :style="{flex: 1}")
           span
             | {{ $t('identical') }}
-        div(style="margin: 20px 0;")
-      el-form-item(:label="$t('infringe')")
+      el-form-item(:label="$t('infringeQuestion')")
         el-switch(v-model="infringe", :active-text="$t('infringe')", :inactive-text="$t('notInfringe')")
       el-form-item
         el-button(type="primary", @click="onSubmit")

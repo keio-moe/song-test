@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
 
 Vue.use(Router);
 
@@ -31,6 +30,22 @@ export default new Router({
         /* webpackChunkName: "copyright" */
         /* webpackMode: "lazy" */
         './views/experiments/Copyright.vue'),
+    },
+    {
+      path: '/experiments/worldmusic/evaluation',
+      name: 'worldmusic_evaluation',
+      component: () => import(
+        /* webpackChunkName: "worldmusic_evaluation" */
+        /* webpackMode: "lazy" */
+        './views/experiments/WorldMusicEvaluation.vue'),
+    },
+    {
+      path: '/experiments/worldmusic/similarity',
+      name: 'worldmusic_similarity',
+      component: () => import(
+        /* webpackChunkName: "worldmusic_similarity" */
+        /* webpackMode: "lazy" */
+        './views/experiments/WorldMusicSimilarity.vue'),
     },
   ],
 });
