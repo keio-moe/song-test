@@ -22,7 +22,7 @@ export default {
   overlap: '重疊性',
   progress: '進度',
   quality: '音質',
-  range: '音域',
+  range: '音程',
   records: '錄音檔',
   rhythm: '節奏性',
   similarity: '相似度',
