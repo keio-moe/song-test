@@ -55,7 +55,7 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2", href="/experiments/worldmusic/similarity")
+  a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
     h2
       | {{ $t('evaluationToSimilarity') }}
 </template>
