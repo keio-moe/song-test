@@ -22,8 +22,9 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  h2.finish(v-if="stage === 2")
-    | {{ $t('experimentFinished') }}
+  a.route(v-if="stage === 2", :href="'https://info.music.keio.moe/#' + username")
+    h2
+      | {{ $t('experimentFinished') }}
 </template>
 
 <script lang="ts">
@@ -144,4 +145,10 @@ export default class Copyright extends Vue {
   margin-top 12px
 .label
   font-weight bold
+.oute
+  text-align center
+  display block
+  margin 40px 0
+  font-size 24px
+  color #42b983
 </style>
