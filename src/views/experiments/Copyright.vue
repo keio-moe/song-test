@@ -1,7 +1,22 @@
 <template lang="pug">
 .copyright
-  create-experiment(:service="service", v-if="stage === 0", @created="experimentCreated")
-  el-card.experiment(v-if="stage === 1")
+  .privacy(v-if="stage === 0", :style="{ padding: '20px' }")
+    p
+      | このプロジェクトでは、音楽著作権侵害評価の公平性と効率性を向上させるための比較方法と計算方法の発見を目指しています。私たちは著作権のためのアルゴリズムを開発し、法的な判断をできるかどうかを検証していきます。 
+    p
+      | この実験では、楽曲比較と歌詞比較の２種類あります。楽曲比較では、２曲（A：原告、B：被告）を聴いていただきます。ヘッドフォンから流れてくる音楽を聞いて、「類似性」と「判決評価」を回答してください。所要時間は、合計2時間程度です。
+    p
+      |「類似性」では、聴いていただいた２曲がどのくらい似ていると感じたか評価していただきます。「判決判断」では、あなたが裁判官として被告の楽曲が原告の著作権を侵害しているかどうかを答えていただきます。判決を判断する際に以下を参考にしてください。
+    p
+      | “B：被告の楽曲がA：原告が著作権を侵害しているか判断するためには、曲が実質的に類似しているかどうかが重要です。原告の楽曲におけるオリジナルの表現と被告の楽曲におけるアイデアの表現 が、実質的に類似していて共通するかどうかです。 オリジナルの表現とは、原告の楽曲独自のものであり、ジャンルや音楽一般に共通するものではありません。 類似性の量は、量的にも質的にも有意でなければなりません。つまり侵害を認められる場合、被告の楽曲は、原告のオリジナルの表現の多くの部分をコピーするか、原告の楽曲の短いながらも重要な部分をコピーしています。“
+    p
+      | また、歌詞比較では楽曲の歌詞だけを比較して、音源比較と同じく「類似性」と「判決評価」を回答していただきます。
+    p
+      | この研究に協力するかどうかは、あなたの自由意思で決定してください。この研究への参加に同意いただけない場合にも、あなたがなんらかの不利益を被ることは決してありません。また、一度同意した後でいつでも同意を取り消すことができ、それによる不利益もありません。実験を中止した場合には、中止するまでに得られたデータ(紙媒体・電子ファイル)や解析結果 を破棄し、それ以降の研究には一切使用いたしません。ただし、取り消し要求された時点で公表済みの解析結果がある場合は、このデータを破棄できませんのでご承知おきください。
+    el-button(type="primary", @click="stage = 1")
+      | 同意する
+  create-experiment(:service="service", v-if="stage === 1", @created="experimentCreated")
+  el-card.experiment(v-if="stage === 2")
     div(slot="header", class="clearfix")
       el-form(label-width="80px", label-position="top")
         el-form-item(:label="$t('progress')")
@@ -31,7 +46,7 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  h2.finish(v-if="stage === 2")
+  h2.finish(v-if="stage === 3")
     | {{ $t('experimentFinished') }}
 </template>
 
@@ -108,7 +123,7 @@ export default class Copyright extends Vue {
 
   private experimentCreated(username: string) {
     this.username = username;
-    this.stage = 1;
+    this.stage = 2;
     this.nextEntity();
   }
 
@@ -120,7 +135,7 @@ export default class Copyright extends Vue {
     });
     const resp = await this.restClient.get<Entry<CopyrightEntry>>(`experiments/${this.service}?${query}`);
     if (resp.statusCode === 404) {
-      this.stage = 2;
+      this.stage = 3;
       return;
     }
     this.progress = resp.result!.data.progress;

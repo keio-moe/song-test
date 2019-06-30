@@ -14,135 +14,44 @@
               source(:src="wav.entity" type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('overlap')")
-        div
-          el-slider.similarity(v-model="overlap")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Solo
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Standard
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Multiple Textures
+        el-slider.similarity(v-model="overlap")
+        slider-span(left="Solo", middle="Standard", right="Multiple Textures")
       el-form-item(:label="$t('creativity')")
-        div
-          el-slider.similarity(v-model="creativity", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Unfamiliar
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Sounds familiar
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Have heard before
+        el-slider.similarity(v-model="creativity")
+        slider-span(left="Unfamiliar", middle="Sounds familiar", right="Have heard before")
       el-form-item(:label="$t('likeness')")
-        div
-          el-slider.similarity(v-model="likeness", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Dislike
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Ambivalent
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Like
+        el-slider.similarity(v-model="likeness")
+        slider-span(left="Dislike", middle="Ambivalent", right="Like")
       el-form-item(:label="$t('tempo')")
-        div
-          el-slider.similarity(v-model="tempo", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Slow
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Standard
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Fast
+        el-slider.similarity(v-model="tempo")
+        slider-span(left="Slow", middle="Standard", right="Fast")
       el-form-item(:label="$t('consonance')")
-        div
-          el-slider.similarity(v-model="consonance", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Dissonant
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Neutral
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Consonant
+        el-slider.similarity(v-model="consonance")
+        slider-span(left="Dissonant", middle="Neutral", right="Consonant")
       el-form-item(:label="$t('emotion')")
-        div
-          el-slider.similarity(v-model="emotion", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Negative
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Neither
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Positive
+        el-slider.similarity(v-model="emotion")
+        slider-span(left="Negative", middle="Neither", right="Positive")
       el-form-item(:label="$t('decoration')")
-        div
-          el-slider.similarity(v-model="decoration", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Solo
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Standard
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Multiple Textures
+        el-slider.similarity(v-model="decoration")
+        slider-span(left="Solo", middle="Standard", right="Multiple Textures")
       el-form-item(:label="$t('range')")
-        div
-          el-slider.similarity(v-model="range", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Overall Low Pitch
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Standard
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Overall High Pitch
+        el-slider.similarity(v-model="range")
+        slider-span(left="Overall Low Pitch", middle="Standard", right="Overall High Pitch")
       el-form-item(:label="$t('quality')")
-        div
-          el-slider.similarity(v-model="quality", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Low
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Standard
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | High
+        el-slider.similarity(v-model="quality")
+        slider-span(left="Low", middle="Standard", right="High")
       el-form-item(:label="$t('rhythm')")
-        div
-          el-slider.similarity(v-model="rhythm", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Iregular
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Neither
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Regular
+        el-slider.similarity(v-model="rhythm")
+        slider-span(left="Irregular", middle="Neither", right="Regular")
       el-form-item(:label="$t('excitingness')")
-        div
-          el-slider.similarity(v-model="excitingness", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Calming
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | No Change
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Exciting
+        el-slider.similarity(v-model="excitingness")
+        slider-span(left="Calming", middle="No Change", right="Exciting")
       el-form-item(:label="$t('groove')")
-        div
-          el-slider.similarity(v-model="groove", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Cannot find a beat
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | No effect
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Can move to the beat
+        el-slider.similarity(v-model="groove")
+        slider-span(left="Cannot find a beat", middle="No effect", right="Can move to the beat")
       el-form-item(:label="$t('timbre')")
-        div
-          el-slider.similarity(v-model="timbre", :style="{flex: 1}")
-          div(:style="{display: 'flex'}")
-            span(:style="{width: '200px'}")
-              | Dark
-            span(:style="{flex: 1, 'text-align': 'center'}")
-              | Normal
-            span(:style="{width: '200px', 'text-align': 'right'}")
-              | Bright
+        el-slider.similarity(v-model="timbre")
+        slider-span(left="Dark", middle="Normal", right="Bright")
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -179,6 +88,7 @@ interface WorldMusicEvaluationEntry {
   name: 'Copyright',
   components: {
     'create-experiment': () => import('@/components/CreateExperiment.vue'),
+    'slider-span': () => import('@/components/SliderSpan.vue'),
     'el-button': Button,
     'el-card': Card,
     'el-form': Form,

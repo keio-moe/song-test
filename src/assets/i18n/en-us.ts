@@ -15,7 +15,7 @@ export default {
   home: 'Home',
   identical: 'Identical',
   infringe: 'Infringe',
-  infringeQuestion: 'Do you think B violate the copyright of A?',
+  infringeQuestion: 'Do you think B violate the infringement of A?',
   likeness: 'Liking',
   lyrics: 'Lyrics',
   notInfringe: 'Not Infringe',
