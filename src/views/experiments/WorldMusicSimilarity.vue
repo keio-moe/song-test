@@ -145,7 +145,7 @@ export default class Copyright extends Vue {
   margin-top 12px
 .label
   font-weight bold
-.oute
+.route
   text-align center
   display block
   margin 40px 0
