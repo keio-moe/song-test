@@ -19,7 +19,7 @@ export default {
   likeness: 'Liking',
   lyrics: 'Lyrics',
   notInfringe: 'Not Infringe',
-  overlap: 'Overlap',
+  overlap: 'Texture',
   progress: 'Progress',
   quality: 'Sound Quality',
   range: 'Pitch',
@@ -36,4 +36,5 @@ export default {
   usernamePrompt: 'Pick Your Unique Username',
   usernameConflict: 'Username Exsisted. Do you want to Continue previous Experiment?',
   worldMusic: 'World Music Experiment',
+  worldMusicWorkshop: 'World Music Experiment (Workshop)',
 };

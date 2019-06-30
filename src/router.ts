@@ -32,7 +32,7 @@ export default new Router({
         './views/experiments/Copyright.vue'),
     },
     {
-      path: '/experiments/worldmusic/evaluation',
+      path: '/experiments/worldmusic/:subtype/evaluation',
       name: 'worldmusic_evaluation',
       component: () => import(
         /* webpackChunkName: "worldmusic_evaluation" */
@@ -40,7 +40,7 @@ export default new Router({
         './views/experiments/WorldMusicEvaluation.vue'),
     },
     {
-      path: '/experiments/worldmusic/similarity',
+      path: '/experiments/worldmusic/:subtype/similarity',
       name: 'worldmusic_similarity',
       component: () => import(
         /* webpackChunkName: "worldmusic_similarity" */

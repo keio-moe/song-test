@@ -28,7 +28,11 @@ export default class Home extends Vue {
     },
     {
       title: 'worldMusic',
-      src: '/experiments/worldmusic/evaluation',
+      src: '/experiments/worldmusic/full/evaluation',
+    },
+    {
+      title: 'worldMusicWorkshop',
+      src: '/experiments/worldmusic/workshop/evaluation',
     },
   ];
 }

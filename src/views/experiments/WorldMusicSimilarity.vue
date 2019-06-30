@@ -67,6 +67,7 @@ interface WorldMusicSimilarityEntry {
 })
 
 export default class Copyright extends Vue {
+  private subtype: string = '';
   private service: string = 'world_music_similarity';
   private username: string = '';
   private stage: number = 0;
@@ -79,6 +80,20 @@ export default class Copyright extends Vue {
   private likeness: number = 50;
 
   private restClient: rm.RestClient = new rm.RestClient(window.navigator.userAgent, consts.host);
+
+  private mounted() {
+    this.subtype = this.$route.params.subtype;
+    switch (this.subtype) {
+      case 'workshop':
+        this.service = 'world_music_workshop_similarity';
+        break;
+      case 'full':
+        this.service = 'world_music_similarity';
+        break;
+      default:
+        this.service = '';
+    }
+  }
 
   private experimentCreated(username: string) {
     this.username = username;
