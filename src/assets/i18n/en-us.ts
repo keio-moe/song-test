@@ -16,7 +16,7 @@ export default {
   identical: 'Identical',
   infringe: 'Infringe',
   infringeQuestion: 'Do you think B violate the infringement of A?',
-  likeness: 'Liking',
+  likeness: 'Preference',
   lyrics: 'Lyrics',
   notInfringe: 'Not Infringe',
   overlap: 'Texture',

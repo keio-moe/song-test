@@ -16,9 +16,9 @@
       el-form-item(:label="$t('similarity')")
         div(:style="{display: 'flex'}")
           el-slider.similarity(v-model="similarity", :style="{flex: 1}")
-      el-form-item(:label="$t('likeness')")
-        div(:style="{display: 'flex'}")
-          el-slider.similarity(v-model="likeness", :style="{flex: 1}")
+      el-form-item(:label="$t('creativity')")
+        el-slider.similarity(v-model="likeness")
+        slider-span(left="A", middle="", right="B")
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
