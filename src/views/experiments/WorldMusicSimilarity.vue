@@ -56,6 +56,7 @@ interface WorldMusicSimilarityEntry {
   name: 'Copyright',
   components: {
     'create-experiment': () => import('@/components/CreateExperiment.vue'),
+    'slider-span': () => import('@/components/SliderSpan.vue'),
     'el-button': Button,
     'el-card': Card,
     'el-form': Form,
