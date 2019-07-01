@@ -47,5 +47,13 @@ export default new Router({
         /* webpackMode: "lazy" */
         './views/experiments/WorldMusicSimilarity.vue'),
     },
+    {
+      path: '/experiments/worldmusic/:subtype/rank',
+      name: 'worldmusic_rank',
+      component: () => import(
+        /* webpackChunkName: "worldmusic_rank" */
+        /* webpackMode: "lazy" */
+        './views/experiments/WorldMusicRank.vue'),
+    },
   ],
 });

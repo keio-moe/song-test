@@ -16,15 +16,15 @@
       el-form-item(:label="$t('similarity')")
         div(:style="{display: 'flex'}")
           el-slider.similarity(v-model="similarity", :style="{flex: 1}")
-      el-form-item(:label="$t('creativity')")
+      el-form-item(:label="$t('likeness')")
         el-slider.similarity(v-model="likeness")
         slider-span(left="A", middle="", right="B")
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2", :href="'https://info.music.keio.moe/#' + username")
+  a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/rank'")
     h2
-      | {{ $t('experimentFinished') }}
+      | Similarity Experiment Finished, Go To Triple Experiment
 </template>
 
 <script lang="ts">
