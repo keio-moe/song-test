@@ -1,5 +1,8 @@
+import * as copyrightLicense from '../licences/copyright_en.txt';
+
 export default {
   cancel: 'Cancel',
+  copyrightLicense: copyrightLicense.default,
   copyrightWorkshop: 'Copyright Experiment (Workshop)',
   copyrightFull: 'Copyright Experiment (Full)',
   consonance: 'Consonance',

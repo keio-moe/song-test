@@ -1,5 +1,9 @@
+import * as copyrightLicense from '../licences/copyright_jp.txt';
+
+
 export default {
   cancel: 'キャンセル',
+  copyrightLicense: copyrightLicense.default,
   copyrightWorkshop: '知的財産権実験（ワークショップ）',
   copyrightFull: '知的財産権実験（完全版）',
   consonance: '協和音',
