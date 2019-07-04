@@ -25,12 +25,16 @@
               | {{ fullLyrics[lyric.entity] }}
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('similarityQuestion')")
-        div(:style="{display: 'flex'}")
-          span
-            | {{ $t('different') }}
-          el-slider.similarity(v-model="similarity", :style="{flex: 1}")
-          span
-            | {{ $t('identical') }}
+        el-radio(v-model="similarity" :label="0")
+          | Not at all
+        el-radio(v-model="similarity" :label="25")
+          | A Little similar
+        el-radio(v-model="similarity" :label="50")
+          | Somewhat similar
+        el-radio(v-model="similarity" :label="75")
+          | Very similar
+        el-radio(v-model="similarity" :label="100")
+          | Extremely similar
       el-form-item(:label="$t('infringeQuestion')")
         el-switch(v-model="infringe", :active-text="$t('infringe')", :inactive-text="$t('notInfringe')")
       el-form-item
@@ -42,7 +46,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Button, Card, Form, FormItem, Input, Progress, Slider, Switch } from 'element-ui';
+import { Button, Card, Form, FormItem, Input, Progress, Radio, Switch } from 'element-ui';
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
@@ -76,7 +80,7 @@ interface CopyrightEntry {
     'el-form-item': FormItem,
     'el-input': Input,
     'el-progress': Progress,
-    'el-slider': Slider,
+    'el-radio': Radio,
     'el-switch': Switch,
   },
 })
