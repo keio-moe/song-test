@@ -4,7 +4,7 @@
     p(style="white-space: pre-line")
       | {{ $t('copyrightLicense') }}
     el-button(type="primary", @click="stage = 1")
-      | 同意する
+      | {{ $t('agree') }}
   create-experiment(:service="service", v-if="stage === 1", @created="experimentCreated")
   el-card.experiment(v-if="stage === 2")
     div(slot="header", class="clearfix")
@@ -26,15 +26,15 @@
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('similarityQuestion')")
         el-radio(v-model="similarity" :label="0")
-          | Not at all
+          | {{ $t('similar0') }}
         el-radio(v-model="similarity" :label="25")
-          | A Little similar
+          | {{ $t('similar1') }}
         el-radio(v-model="similarity" :label="50")
-          | Somewhat similar
+          | {{ $t('similar2') }}
         el-radio(v-model="similarity" :label="75")
-          | Very similar
+          | {{ $t('similar3') }}
         el-radio(v-model="similarity" :label="100")
-          | Extremely similar
+          | {{ $t('similar4') }}
       el-form-item(:label="$t('infringeQuestion')")
         el-switch(v-model="infringe", :active-text="$t('infringe')", :inactive-text="$t('notInfringe')")
       el-form-item

@@ -1,6 +1,7 @@
 import * as copyrightLicense from '../licences/copyright_en.txt';
 
 export default {
+  agree: 'Agree',
   cancel: 'Cancel',
   copyrightLicense: copyrightLicense.default,
   copyrightWorkshop: 'Copyright Experiment (Workshop)',
@@ -29,6 +30,11 @@ export default {
   records: 'Records',
   requirementsNotMatch: 'The requirements of this experiment don\'t match',
   rhythm: 'Rhythm',
+  similar0: 'Not at all similar',
+  similar1: 'A Little similar',
+  similar2: 'Somewhat similar',
+  similar3: 'Very similar',
+  similar4: 'Extremely similar',
   similarity: 'Similarity',
   similarityQuestion: 'Do you think A and B are similar?',
   submit: 'Submit',

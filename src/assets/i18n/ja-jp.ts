@@ -2,6 +2,7 @@ import * as copyrightLicense from '../licences/copyright_jp.txt';
 
 
 export default {
+  agree: '同意する',
   cancel: 'キャンセル',
   copyrightLicense: copyrightLicense.default,
   copyrightWorkshop: '知的財産権実験（ワークショップ）',
@@ -28,6 +29,11 @@ export default {
   range: '音程',
   records: '録音',
   rhythm: 'リズム',
+  similar0: '全く似ていない',
+  similar1: 'あまり似ていない',
+  similar2: 'どちらとも言えない',
+  similar3: 'よく似ている',
+  similar4: '非常に似ている',
   similarity: '類似性',
   similarityQuestion: 'AとBの類似性を判断してください',
   submit: '送信',
