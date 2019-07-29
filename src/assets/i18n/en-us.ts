@@ -46,4 +46,5 @@ export default {
   usernameConflict: 'Username Exsisted. Do you want to Continue previous Experiment?',
   worldMusic: 'World Music Experiment',
   worldMusicWorkshop: 'World Music Experiment (Workshop)',
+  worldMusicYamaha: 'World Music Experiment（Yamaha）',
 };

@@ -55,9 +55,12 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
+  a.route(v-if="stage === 2 && subtype !== 'yamaha'", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
     h2
       | {{ $t('evaluationToSimilarity') }}
+  a.route(v-if="stage === 2 && subtype === 'yamaha'", :href="'/experiments/worldmusic/' + subtype + '/rank'")
+    h2
+      | Similarity Experiment Finished, Go To Triple Experiment
 </template>
 
 <script lang="ts">
@@ -134,6 +137,9 @@ export default class Copyright extends Vue {
         break;
       case 'full':
         this.service = 'world_music_evaluation';
+        break;
+      case 'yamaha':
+        this.service = 'world_music_yamaha_evaluation';
         break;
       default:
         this.service = '';

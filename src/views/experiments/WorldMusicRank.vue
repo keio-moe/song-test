@@ -93,6 +93,9 @@ export default class Copyright extends Vue {
       case 'full':
         this.service = 'world_music_rank';
         break;
+      case 'yamaha':
+        this.service = 'world_music_yamaha_rank';
+        break;
       default:
         this.service = '';
     }

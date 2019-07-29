@@ -44,4 +44,5 @@ export default {
   usernamePrompt: 'ID を入力してください。',
   worldMusic: 'ワールドミュージック実験',
   worldMusicWorkshop: 'ワールドミュージック実験（ワークショップ）',
+  worldMusicYamaha: 'ワールドミュージック実験（Yamaha）',
 };
