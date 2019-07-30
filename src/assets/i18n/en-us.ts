@@ -1,6 +1,7 @@
 import * as copyrightLicense from '../licences/copyright_en.txt';
+import * as worldMusic from './labels/word_music.json';
 
-export default {
+const translation: any = {
   agree: 'Agree',
   cancel: 'Cancel',
   copyrightLicense: copyrightLicense.default,
@@ -48,3 +49,15 @@ export default {
   worldMusicWorkshop: 'World Music Experiment (Workshop)',
   worldMusicYamaha: 'World Music Experiment（Yamaha）',
 };
+
+const worldMusicJson = worldMusic.default as any[];
+
+worldMusicJson.forEach((item) => {
+  translation[`worldMusicFeature${item.ID}`] = item['Feature Name EN'] as string;
+  translation[`worldMusicLow${item.ID}`] = item['Low EN'] as string;
+  translation[`worldMusicMedium${item.ID}`] = item['Medium EN'] as string;
+  translation[`worldMusicHigh${item.ID}`] = item['High EN'] as string;
+  translation[`worldMusicExplanation${item.ID}`] = item['Explanation EN'] as string;
+});
+
+export default translation;

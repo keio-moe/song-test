@@ -13,45 +13,97 @@
             audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
-      el-form-item(:label="$t('overlap')")
-        el-slider.similarity(v-model="overlap")
-        slider-span(left="Solo", middle="Standard", right="Multiple Textures")
-      el-form-item(:label="$t('creativity')")
-        el-slider.similarity(v-model="creativity")
-        slider-span(left="Unfamiliar", middle="Sounds familiar", right="Have heard before")
-      el-form-item(:label="$t('likeness')")
-        el-slider.similarity(v-model="likeness")
-        slider-span(left="Dislike", middle="Ambivalent", right="Like")
-      el-form-item(:label="$t('tempo')")
-        el-slider.similarity(v-model="tempo")
-        slider-span(left="Slow", middle="Standard", right="Fast")
-      el-form-item(:label="$t('consonance')")
-        el-slider.similarity(v-model="consonance")
-        slider-span(left="Dissonant", middle="Neutral", right="Consonant")
-      el-form-item(:label="$t('emotion')")
-        el-slider.similarity(v-model="emotion")
-        slider-span(left="Negative", middle="Neither", right="Positive")
-      el-form-item(:label="$t('decoration')")
-        el-slider.similarity(v-model="decoration")
-        slider-span(left="Solo", middle="Standard", right="Multiple Textures")
-      el-form-item(:label="$t('range')")
-        el-slider.similarity(v-model="range")
-        slider-span(left="Overall Low Pitch", middle="Standard", right="Overall High Pitch")
-      el-form-item(:label="$t('quality')")
-        el-slider.similarity(v-model="quality")
-        slider-span(left="Low", middle="Standard", right="High")
-      el-form-item(:label="$t('rhythm')")
-        el-slider.similarity(v-model="rhythm")
-        slider-span(left="Irregular", middle="Neither", right="Regular")
-      el-form-item(:label="$t('excitingness')")
-        el-slider.similarity(v-model="excitingness")
-        slider-span(left="Calming", middle="No Change", right="Exciting")
-      el-form-item(:label="$t('groove')")
-        el-slider.similarity(v-model="groove")
-        slider-span(left="Cannot find a beat", middle="No effect", right="Can move to the beat")
-      el-form-item(:label="$t('timbre')")
-        el-slider.similarity(v-model="timbre")
-        slider-span(left="Dark", middle="Normal", right="Bright")
+      el-form-item(:label="$t('worldMusicFeature1')")
+        el-radio(v-model="decoration", :label="0")
+          | {{ $t('worldMusicLow1') }}
+        el-radio(v-model="decoration", :label="50")
+          | {{ $t('worldMusicMedium1') }}
+        el-radio(v-model="decoration", :label="100")
+          | {{ $t('worldMusicHigh1') }}
+      el-form-item(:label="$t('worldMusicFeature2')")
+        el-radio(v-model="groove", :label="0")
+          | {{ $t('worldMusicLow2') }}
+        el-radio(v-model="groove", :label="50")
+          | {{ $t('worldMusicMedium2') }}
+        el-radio(v-model="groove", :label="100")
+          | {{ $t('worldMusicHigh2') }}
+      el-form-item(:label="$t('worldMusicFeature3')")
+        el-radio(v-model="creativity", :label="0")
+          | {{ $t('worldMusicLow3') }}
+        el-radio(v-model="creativity", :label="50")
+          | {{ $t('worldMusicMedium3') }}
+        el-radio(v-model="creativity", :label="100")
+          | {{ $t('worldMusicHigh3') }}
+      el-form-item(:label="$t('worldMusicFeature4')")
+        el-radio(v-model="likeness", :label="0")
+          | {{ $t('worldMusicLow4') }}
+        el-radio(v-model="likeness", :label="50")
+          | {{ $t('worldMusicMedium4') }}
+        el-radio(v-model="likeness", :label="100")
+          | {{ $t('worldMusicHigh4') }}
+      el-form-item(:label="$t('worldMusicFeature5')")
+        el-radio(v-model="consonance", :label="0")
+          | {{ $t('worldMusicLow5') }}
+        el-radio(v-model="consonance", :label="50")
+          | {{ $t('worldMusicMedium5') }}
+        el-radio(v-model="consonance", :label="100")
+          | {{ $t('worldMusicHigh5') }}
+      el-form-item(:label="$t('worldMusicFeature6')")
+        el-radio(v-model="emotion", :label="0")
+          | {{ $t('worldMusicLow6') }}
+        el-radio(v-model="emotion", :label="50")
+          | {{ $t('worldMusicMedium6') }}
+        el-radio(v-model="emotion", :label="100")
+          | {{ $t('worldMusicHigh6') }}
+      el-form-item(:label="$t('worldMusicFeature7')")
+        el-radio(v-model="excitingness", :label="0")
+          | {{ $t('worldMusicLow7') }}
+        el-radio(v-model="excitingness", :label="50")
+          | {{ $t('worldMusicMedium7') }}
+        el-radio(v-model="excitingness", :label="100")
+          | {{ $t('worldMusicHigh7') }}
+      el-form-item(:label="$t('worldMusicFeature8')")
+        el-radio(v-model="range", :label="0")
+          | {{ $t('worldMusicLow8') }}
+        el-radio(v-model="range", :label="50")
+          | {{ $t('worldMusicMedium8') }}
+        el-radio(v-model="range", :label="100")
+          | {{ $t('worldMusicHigh8') }}
+      el-form-item(:label="$t('worldMusicFeature9')")
+        el-radio(v-model="quality", :label="0")
+          | {{ $t('worldMusicLow9') }}
+        el-radio(v-model="quality", :label="50")
+          | {{ $t('worldMusicMedium9') }}
+        el-radio(v-model="quality", :label="100")
+          | {{ $t('worldMusicHigh8') }}
+      el-form-item(:label="$t('worldMusicFeature10')")
+        el-radio(v-model="tempo", :label="0")
+          | {{ $t('worldMusicLow10') }}
+        el-radio(v-model="tempo", :label="50")
+          | {{ $t('worldMusicMedium10') }}
+        el-radio(v-model="tempo", :label="100")
+          | {{ $t('worldMusicHigh10') }}
+      el-form-item(:label="$t('worldMusicFeature11')")
+        el-radio(v-model="rhythm", :label="0")
+          | {{ $t('worldMusicLow11') }}
+        el-radio(v-model="rhythm", :label="50")
+          | {{ $t('worldMusicMedium11') }}
+        el-radio(v-model="rhythm", :label="100")
+          | {{ $t('worldMusicHigh11') }}
+      el-form-item(:label="$t('worldMusicFeature12')")
+        el-radio(v-model="timbre", :label="0")
+          | {{ $t('worldMusicLow12') }}
+        el-radio(v-model="timbre", :label="50")
+          | {{ $t('worldMusicMedium12') }}
+        el-radio(v-model="timbre", :label="100")
+          | {{ $t('worldMusicHigh12') }}
+      el-form-item(:label="$t('worldMusicFeature13')")
+        el-radio(v-model="overlap", :label="0")
+          | {{ $t('worldMusicLow13') }}
+        el-radio(v-model="overlap", :label="50")
+          | {{ $t('worldMusicMedium13') }}
+        el-radio(v-model="overlap", :label="100")
+          | {{ $t('worldMusicHigh13') }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -65,7 +117,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Button, Card, Form, FormItem, Input, Progress, Slider, Switch } from 'element-ui';
+import { Button, Card, Form, FormItem, Input, Progress, Radio, Slider, Switch } from 'element-ui';
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
@@ -98,6 +150,7 @@ interface WorldMusicEvaluationEntry {
     'el-form-item': FormItem,
     'el-input': Input,
     'el-progress': Progress,
+    'el-radio': Radio,
     'el-slider': Slider,
     'el-switch': Switch,
   },
