@@ -34,10 +34,10 @@ export default class Home extends Vue {
       title: 'worldMusicWorkshop',
       src: '/experiments/worldmusic/workshop/evaluation',
     },
-    {
-      title: 'worldMusicYamaha',
-      src: '/experiments/worldmusic/yamaha/evaluation',
-    },
+    // {
+    //   title: 'worldMusicYamaha',
+    //   src: '/experiments/worldmusic/yamaha/evaluation',
+    // },
   ];
 }
 </script>
