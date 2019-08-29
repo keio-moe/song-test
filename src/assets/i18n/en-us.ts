@@ -47,6 +47,8 @@ const translation: any = {
   usernameConflict: 'Username Exsisted. Do you want to Continue previous Experiment?',
   worldMusic: 'World Music Experiment',
   worldMusicWorkshop: 'World Music Experiment (Workshop)',
+  worldMusicWorkshopSimilarity: 'World Music Experiment (Workshop, Pairwise)',
+  worldMusicWorkshopRank: 'World Music Experiment (Workshop, Triplet)',
   worldMusicYamaha: 'World Music Experiment（Yamaha）',
 };
 

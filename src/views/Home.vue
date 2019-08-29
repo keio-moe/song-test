@@ -34,6 +34,14 @@ export default class Home extends Vue {
       title: 'worldMusicWorkshop',
       src: '/experiments/worldmusic/workshop/evaluation',
     },
+    {
+      title: 'worldMusicWorkshopRank',
+      src: '/experiments/worldmusic/workshop/rank',
+    },
+    {
+      title: 'worldMusicWorkshopSimilarity',
+      src: '/experiments/worldmusic/workshop/similarity',
+    },
     // {
     //   title: 'worldMusicYamaha',
     //   src: '/experiments/worldmusic/yamaha/evaluation',
