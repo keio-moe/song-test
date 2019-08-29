@@ -7,11 +7,11 @@
         el-form-item(:label="$t('progress')")
           el-progress.progress(:text-inside="true", :stroke-width="18", :percentage="Number((progress * 100).toFixed(2))")
         el-form-item(:label="$t('records')", v-if="wavs.length > 0")
-          div(v-for="wav in wavs" :key="wav.entity")
+          div(v-for="wav in wavs", :key="wav.entity")
             p.label
               | {{ wav.label }}:
             audio(controls)
-              source(:src="wav.entity" type="audio/mpeg")
+              source(:src="wav.entity", type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
       el-form-item(label="最も違う曲を選んでください")
         el-radio(v-model="rank" :label="0")
@@ -128,6 +128,10 @@ export default class Copyright extends Vue {
   }
 
   private async onSubmit() {
+    document.body.querySelectorAll('audio').forEach((audio) => {
+      audio.pause();
+      audio.currentTime = 0;
+    });
     await this.restClient.replace(`experiments/${this.service}`, {
       username: this.username,
       id: this.entityId,

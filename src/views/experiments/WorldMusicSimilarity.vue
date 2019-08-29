@@ -122,6 +122,10 @@ export default class Copyright extends Vue {
   }
 
   private async onSubmit() {
+    document.body.querySelectorAll('audio').forEach((audio) => {
+      audio.pause();
+      audio.currentTime = 0;
+    });
     await this.restClient.replace(`experiments/${this.service}`, {
       username: this.username,
       id: this.entityId,
