@@ -252,6 +252,7 @@ export default class Copyright extends Vue {
       timbre: this.timbre,
     });
     this.nextEntity();
+    window.scrollTo(0, 0);
   }
 }
 </script>

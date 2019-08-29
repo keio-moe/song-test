@@ -129,6 +129,7 @@ export default class Copyright extends Vue {
       likeness: this.likeness,
     });
     this.nextEntity();
+    window.scrollTo(0, 0);
   }
 }
 </script>

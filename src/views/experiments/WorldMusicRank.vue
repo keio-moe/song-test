@@ -13,19 +13,22 @@
             audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
-      el-form-item(label="Select the most similar pair")
+      el-form-item(label="最も違う曲を選んでください")
         el-radio(v-model="rank" :label="0")
-          | A and B
+          | A
         el-radio(v-model="rank" :label="1")
-          | A and C
+          | B
         el-radio(v-model="rank" :label="2")
-          | B and C
+          | C
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
   a.route(v-if="stage === 2", :href="'https://info.music.keio.moe/#' + username")
     h2
       | {{ $t('experimentFinished') }}
+    h2
+      a(href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
+        | Go To Questionnaire
 </template>
 
 <script lang="ts">
@@ -131,6 +134,7 @@ export default class Copyright extends Vue {
       option: this.rank,
     });
     this.nextEntity();
+    window.scrollTo(0, 0);
   }
 }
 </script>
