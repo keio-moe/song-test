@@ -1,6 +1,8 @@
 <template lang="pug">
 .world-music-evaluation
-  create-experiment(:service="service", v-if="stage === 0", @created="experimentCreated")
+  div(v-if="stage === 0")
+    iframe.frame(src="https://hideodaikoku.github.io/feat-explanation/")
+    create-experiment(:service="service", @created="experimentCreated")
   el-card.experiment(v-if="stage === 1")
     div(slot="header", class="clearfix")
       el-form(label-width="80px", label-position="top")
@@ -263,6 +265,11 @@ export default class Copyright extends Vue {
 .experiment
   width 70%
   margin 0 15%
+.frame
+  width 70%
+  margin 0 15%
+  height 700px
+  border 0
 .finish
   text-align center
   margin-top 200px
