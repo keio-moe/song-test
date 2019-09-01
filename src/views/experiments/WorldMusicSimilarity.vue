@@ -26,15 +26,15 @@
           | {{ $t('similar4') }}
       el-form-item(:label="$t('likeness')")
         el-radio(v-model="likeness", :label="0")
-          | A
+          | Aの方が非常に好き
         el-radio(v-model="likeness", :label="25")
-          | Mostly A
+          | Aの方が少し好き
         el-radio(v-model="likeness", :label="50")
-          | Balanced
+          | どちらとも言えない
         el-radio(v-model="likeness", :label="70")
-          | Mostly B
+          | Bの方が非常に好き
         el-radio(v-model="likeness", :label="100")
-          | B
+          | Bの方が少し好き
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
