@@ -107,12 +107,12 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2 && subtype !== 'yamaha'", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
+  a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
     h2
-      | {{ $t('evaluationToSimilarity') }}
-  a.route(v-if="stage === 2 && subtype === 'yamaha'", :href="'/experiments/worldmusic/' + subtype + '/rank'")
+      | Evaluation Experiment Finished, Go To Similarity Experiment
+  a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank'")
     h2
-      | Similarity Experiment Finished, Go To Triple Experiment
+      | Evaluation Experiment Finished, Go To Triplet Experiment
 </template>
 
 <script lang="ts">
@@ -161,6 +161,8 @@ export default class Copyright extends Vue {
   private service: string = 'world_music_evaluation';
   private username: string = '';
   private stage: number = 0;
+
+  private random: number = Math.floor(Math.random() * 2);
 
   private progress: number = 0;
   private wavs: Array<Labeled<string>> = [];

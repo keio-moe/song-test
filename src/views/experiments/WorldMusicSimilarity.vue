@@ -40,7 +40,11 @@
           | {{ $t('submit') }}
   a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/rank'")
     h2
-      | Similarity Experiment Finished, Go To Triplet Experiment
+      | Similarity Experiment Finished, Go To Triplet Experiment if you Have Not.
+  a.route(v-if="stage === 2")
+    h2
+      a(href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
+        | Go To Questionnaire if You Have Taken Similarity Experiment
 </template>
 
 <script lang="ts">

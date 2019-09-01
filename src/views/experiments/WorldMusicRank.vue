@@ -23,12 +23,13 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2", :href="'https://info.music.keio.moe/#' + username")
+  a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
     h2
-      | {{ $t('experimentFinished') }}
+      | Triplet Experiment Finished, Go To Similarity Experiment if you Have Not.
+  a.route(v-if="stage === 2")
     h2
       a(href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
-        | Go To Questionnaire
+        | Go To Questionnaire if You Have Taken Similarity Experiment
 </template>
 
 <script lang="ts">
