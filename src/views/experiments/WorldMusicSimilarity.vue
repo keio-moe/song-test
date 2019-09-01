@@ -14,22 +14,38 @@
               source(:src="wav.entity" type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('similarity')")
-        div(:style="{display: 'flex'}")
-          el-slider.similarity(v-model="similarity", :style="{flex: 1}")
+        el-radio(v-model="similarity", :label="0")
+          | {{ $t('similar0') }}
+        el-radio(v-model="similarity", :label="25")
+          | {{ $t('similar1') }}
+        el-radio(v-model="similarity", :label="50")
+          | {{ $t('similar2') }}
+        el-radio(v-model="similarity", :label="75")
+          | {{ $t('similar3') }}
+        el-radio(v-model="similarity", :label="100")
+          | {{ $t('similar4') }}
       el-form-item(:label="$t('likeness')")
-        el-slider.similarity(v-model="likeness")
-        slider-span(left="A", middle="", right="B")
+        el-radio(v-model="likeness", :label="0")
+          | A
+        el-radio(v-model="likeness", :label="25")
+          | Mostly A
+        el-radio(v-model="likeness", :label="50")
+          | Balanced
+        el-radio(v-model="likeness", :label="70")
+          | Mostly B
+        el-radio(v-model="likeness", :label="100")
+          | B
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
   a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/rank'")
     h2
-      | Similarity Experiment Finished, Go To Triple Experiment
+      | Similarity Experiment Finished, Go To Triplet Experiment
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Button, Card, Form, FormItem, Input, Progress, Slider, Switch } from 'element-ui';
+import { Button, Card, Form, FormItem, Input, Progress, Radio, Slider, Switch } from 'element-ui';
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
@@ -63,6 +79,7 @@ interface WorldMusicSimilarityEntry {
     'el-form-item': FormItem,
     'el-input': Input,
     'el-progress': Progress,
+    'el-radio': Radio,
     'el-slider': Slider,
     'el-switch': Switch,
   },
