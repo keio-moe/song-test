@@ -62,7 +62,7 @@
     "Low JP": "不協和音",
     "Medium JP": "中立的",
     "High JP": "協和音",
-    "Explanation JP": "ハーモニーを聴いて、どのくらい満足されますか?"
+    "Explanation JP": "ハーモニーを聴いて、どのくらい心地良いですか?"
   },
   {
     "ID": 6,
@@ -71,11 +71,11 @@
     "Medium EN": "Neither",
     "High EN": "Positive",
     "Explanation EN": "How does this song make you feel?",
-    "Feature Name JP": "情動",
+    "Feature Name JP": "エモーショナル・バランス",
     "Low JP": "ネガティブ",
     "Medium JP": "どちらでもない",
     "High JP": "ポジティブ",
-    "Explanation JP": "この曲はどう感じますか?"
+    "Explanation JP": "この曲を聴いてポジティブな気持ちになりますか？ネガティブな気持ちになりますか？"
   },
   {
     "ID": 7,
