@@ -25,11 +25,11 @@
           | {{ $t('submit') }}
   a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
     h2
-      | Triplet Experiment Finished, Go To Similarity Experiment if you Have Not.
+      | トリプル評価実験が終了いたしました。ペア実験をやってない場合、こちらへご覧ください。
   a.route(v-if="stage === 2")
     h2
       a(href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
-        | Go To Questionnaire if You Have Taken Similarity Experiment
+        | トリプルとペア実験両方完成した場合、アンケートを記入してください。ご協力ありがとうございました。
 </template>
 
 <script lang="ts">
