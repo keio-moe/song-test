@@ -31,7 +31,7 @@
           | Aの方が少し好き
         el-radio(v-model="likeness", :label="50")
           | どちらとも言えない
-        el-radio(v-model="likeness", :label="70")
+        el-radio(v-model="likeness", :label="75")
           | Bの方が少し好き
         el-radio(v-model="likeness", :label="100")
           | Bの方が非常に好き
