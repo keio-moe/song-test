@@ -26,22 +26,22 @@ export default class Home extends Vue {
       title: 'copyrightFull',
       src: '/experiments/copyright/full',
     },
-    {
-      title: 'worldMusic',
-      src: '/experiments/worldmusic/full/evaluation',
-    },
+    // {
+    //   title: 'worldMusic',
+    //   src: '/experiments/worldmusic/full/evaluation',
+    // },
     {
       title: 'worldMusicWorkshop',
       src: '/experiments/worldmusic/workshop/evaluation',
     },
-    {
-      title: 'worldMusicWorkshopRank',
-      src: '/experiments/worldmusic/workshop/rank',
-    },
-    {
-      title: 'worldMusicWorkshopSimilarity',
-      src: '/experiments/worldmusic/workshop/similarity',
-    },
+    // {
+    //   title: 'worldMusicWorkshopRank',
+    //   src: '/experiments/worldmusic/workshop/rank',
+    // },
+    // {
+    //   title: 'worldMusicWorkshopSimilarity',
+    //   src: '/experiments/worldmusic/workshop/similarity',
+    // },
     // {
     //   title: 'worldMusicYamaha',
     //   src: '/experiments/worldmusic/yamaha/evaluation',
