@@ -39,10 +39,10 @@
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
   a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/rank'")
-    h3
+    h4
       | ペア評価実験が終了いたしました。トリプル実験をやってない場合、こちらへご覧ください。
   a.route(v-if="stage === 2", href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
-    h3
+    h4
       | トリプルとペア実験両方完成した場合、アンケートを記入してください。ご協力ありがとうございました。
 </template>
 
