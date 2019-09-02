@@ -24,12 +24,11 @@
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
   a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/similarity'")
-    h2
+    h3
       | トリプル評価実験が終了いたしました。ペア実験をやってない場合、こちらへご覧ください。
-  a.route(v-if="stage === 2")
-    h2
-      a(href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
-        | トリプルとペア実験両方完成した場合、アンケートを記入してください。ご協力ありがとうございました。
+  a.route(v-if="stage === 2", href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
+    h3
+      | トリプルとペア実験両方完成した場合、アンケートを記入してください。ご協力ありがとうございました。
 </template>
 
 <script lang="ts">
