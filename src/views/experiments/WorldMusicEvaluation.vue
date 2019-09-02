@@ -14,6 +14,9 @@
               | {{ wav.label }}:
             audio.audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
+        el-form-item(label="説明")
+          el-button(type="primary", @click="goToManual")
+            | 説明
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('worldMusicFeature1')")
         el-radio(v-model="decoration", :label="0")
@@ -235,6 +238,10 @@ export default class Copyright extends Vue {
     this.progress = resp.result!.data.progress;
     this.wavs = resp.result!.data.wavs;
     this.entityId = resp.result!.data.id;
+  }
+
+  private goToManual() {
+    window.open('https://hideodaikoku.github.io/feat-explanation/', '_blank');
   }
 
   private async onSubmit() {
