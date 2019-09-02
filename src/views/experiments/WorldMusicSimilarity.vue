@@ -10,7 +10,7 @@
           div(v-for="wav in wavs" :key="wav.entity")
             p.label
               | {{ wav.label }}:
-            audio(controls)
+            audio.audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
       el-form-item(:label="$t('similarity')")
@@ -177,4 +177,7 @@ export default class Copyright extends Vue {
   margin 40px 0
   font-size 24px
   color #42b983
+.audio
+  width 100%
+  border-radius 2em
 </style>
