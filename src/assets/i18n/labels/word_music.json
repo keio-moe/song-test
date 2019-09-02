@@ -136,10 +136,10 @@
     "Medium EN": "Moderate",
     "High EN": "Very Tense",
     "Explanation EN": "How tense does the singing voice sound?",
-    "Feature Name JP": "声の張り",
-    "Low JP": "無緊張",
+    "Feature Name JP": "声の広さ",
+    "Low JP": "広い",
     "Medium JP": "普通",
-    "High JP": "非常に緊張せれてる",
+    "High JP": "狭い",
     "Explanation JP": "歌声はどの程度緊張していますか？"
   },
   {

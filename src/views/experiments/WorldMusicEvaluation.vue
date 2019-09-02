@@ -77,7 +77,7 @@
         el-radio(v-model="quality", :label="50")
           | {{ $t('worldMusicMedium9') }}
         el-radio(v-model="quality", :label="100")
-          | {{ $t('worldMusicHigh8') }}
+          | {{ $t('worldMusicHigh9') }}
       el-form-item(:label="$t('worldMusicFeature10')")
         el-radio(v-model="tempo", :label="0")
           | {{ $t('worldMusicLow10') }}
