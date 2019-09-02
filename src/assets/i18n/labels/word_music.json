@@ -34,8 +34,8 @@
     "Explanation EN": "How often have you heard this type of song?",
     "Feature Name JP": "親和性",
     "Low JP": "聴いたことがない",
-    "Medium JP": "聴き覚えがある",
-    "High JP": "聞いたことがある",
+    "Medium JP": "聴いたことが少しある",
+    "High JP": "聴いたことがよくある",
     "Explanation JP": "あなたにとってこの曲はどのぐらい馴染みがありますか？"
   },
   {
@@ -111,7 +111,7 @@
     "High EN": "Very Regular",
     "Explanation EN": "How regular are the rhythmic patterns?",
     "Feature Name JP": "リズム",
-    "Low JP": "非常に不規則",
+    "Low JP": "とても不規則的",
     "Medium JP": "普通",
     "High JP": "とても規則的",
     "Explanation JP": "リズムのパターンはどのくらい規則的ですか？"
