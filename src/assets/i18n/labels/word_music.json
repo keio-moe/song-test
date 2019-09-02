@@ -100,7 +100,7 @@
     "Feature Name JP": "テンポ",
     "Low JP": "遅い",
     "Medium JP": "標準的",
-    "High JP": "早い",
+    "High JP": "速い",
     "Explanation JP": "この曲はどのくらい早いですか?"
   },
   {
@@ -136,11 +136,11 @@
     "Medium EN": "Moderate",
     "High EN": "Very Tense",
     "Explanation EN": "How tense does the singing voice sound?",
-    "Feature Name JP": "声の広さ",
-    "Low JP": "広い",
+    "Feature Name JP": "喉のテンション",
+    "Low JP": "喉に力がかっていない",
     "Medium JP": "普通",
-    "High JP": "狭い",
-    "Explanation JP": "歌声はどの程度緊張していますか？"
+    "High JP": "喉に力かかっている",
+    "Explanation JP": "喉に力かかっていますか？"
   },
   {
     "ID": 13,
