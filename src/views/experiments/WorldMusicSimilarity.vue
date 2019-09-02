@@ -32,9 +32,9 @@
         el-radio(v-model="likeness", :label="50")
           | どちらとも言えない
         el-radio(v-model="likeness", :label="70")
-          | Bの方が非常に好き
-        el-radio(v-model="likeness", :label="100")
           | Bの方が少し好き
+        el-radio(v-model="likeness", :label="100")
+          | Bの方が非常に好き
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -161,8 +161,8 @@ export default class Copyright extends Vue {
 
 <style lang="stylus" scoped>
 .experiment
-  width 70%
-  margin 0 15%
+  width 90%
+  margin 0 auto
 .finish
   text-align center
   margin-top 200px
