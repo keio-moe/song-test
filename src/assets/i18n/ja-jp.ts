@@ -43,7 +43,7 @@ const translation: any = {
   usernameAlert: 'ID を入力してください。',
   usernamePrompt: 'ID を入力してください。',
   worldMusic: 'ワールドミュージック実験',
-  worldMusicWorkshop: 'ワールドミュージック実験（ワークショップ）',
+  worldMusicWorkshop: 'ワールドミュージック実験',
   worldMusicYamaha: 'ワールドミュージック実験（Yamaha）',
 };
 
