@@ -12,8 +12,7 @@
           div(v-for="wav in wavs" :key="wav.entity")
             p.label
               | {{ wav.label }}:
-            audio.audio(controls)
-              source(:src="wav.entity" type="audio/mpeg")
+            mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
         el-form-item(label="説明")
           el-button(type="primary", @click="goToManual")
             | 説明
@@ -126,6 +125,7 @@ import { Button, Card, Form, FormItem, Input, Progress, Radio, Slider, Switch } 
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
+import MutualAudio from '@/components/MutualAudio.vue';
 
 
 interface Entry<T> {
@@ -158,6 +158,7 @@ interface WorldMusicEvaluationEntry {
     'el-radio': Radio,
     'el-slider': Slider,
     'el-switch': Switch,
+    'mutual-audio': MutualAudio,
   },
 })
 
@@ -292,7 +293,4 @@ export default class Copyright extends Vue {
   margin 40px 0
   font-size 24px
   color #42b983
-.audio
-  width 100%
-  border-radius 2em
 </style>
