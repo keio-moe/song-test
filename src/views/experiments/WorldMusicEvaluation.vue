@@ -16,7 +16,7 @@
         el-form-item(label="説明")
           el-button(type="primary", @click="goToManual")
             | 説明
-    el-form(label-width="80px", label-position="top")
+    el-form.questionnaire(label-width="80px", label-position="top")
       el-form-item(:label="$t('worldMusicFeature1')")
         el-radio(v-model="decoration", :label="0")
           | {{ $t('worldMusicLow1') }}
@@ -293,4 +293,7 @@ export default class Copyright extends Vue {
   margin 40px 0
   font-size 24px
   color #42b983
+.questionnaire
+  height 36vh
+  overflow-y scroll
 </style>
