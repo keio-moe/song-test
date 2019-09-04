@@ -34,8 +34,6 @@ export default class CreateExperiment extends Vue {
 
   private mounted() {
     if (!isNullOrUndefined(this.defaultUsername)) {
-      console.log('here');
-      console.log(this.defaultUsername);
       this.username = this.defaultUsername;
     }
   }
