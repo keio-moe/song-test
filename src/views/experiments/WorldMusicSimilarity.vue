@@ -37,10 +37,10 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2", :href="'/experiments/worldmusic/' + subtype + '/rank'")
+  a.route(v-if="stage === 2 && flag === 0", :href="'/experiments/worldmusic/' + subtype + '/rank/0'")
     h4
-      | ペア評価実験が終了いたしました。トリプル実験をやってない場合、こちらへご覧ください。
-  a.route(v-if="stage === 2", href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
+      | ペア評価実験が終了いたしました。トリプル実験は、こちらへご覧ください。
+  a.route(v-if="stage === 2 && flag === 1", href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
     h4
       | トリプルとペア実験両方完成した場合、アンケートを記入してください。ご協力ありがとうございました。
 </template>
@@ -72,7 +72,7 @@ interface WorldMusicSimilarityEntry {
 }
 
 @Component({
-  name: 'Copyright',
+  name: 'WorldMusicSimilarity',
   components: {
     'create-experiment': () => import('@/components/CreateExperiment.vue'),
     'slider-span': () => import('@/components/SliderSpan.vue'),
@@ -91,6 +91,7 @@ interface WorldMusicSimilarityEntry {
 
 export default class Copyright extends Vue {
   private subtype: string = '';
+  private flag: number = 0;
   private service: string = 'world_music_similarity';
   private username: string = '';
   private stage: number = 0;
@@ -106,6 +107,7 @@ export default class Copyright extends Vue {
 
   private mounted() {
     this.subtype = this.$route.params.subtype;
+    this.flag = Number(this.$route.params.flag);
     switch (this.subtype) {
       case 'workshop':
         this.service = 'world_music_workshop_similarity';

@@ -40,7 +40,7 @@ export default new Router({
         './views/experiments/WorldMusicEvaluation.vue'),
     },
     {
-      path: '/experiments/worldmusic/:subtype/similarity',
+      path: '/experiments/worldmusic/:subtype/similarity/:flag',
       name: 'worldmusic_similarity',
       component: () => import(
         /* webpackChunkName: "worldmusic_similarity" */
@@ -48,7 +48,7 @@ export default new Router({
         './views/experiments/WorldMusicSimilarity.vue'),
     },
     {
-      path: '/experiments/worldmusic/:subtype/rank',
+      path: '/experiments/worldmusic/:subtype/rank/:flag',
       name: 'worldmusic_rank',
       component: () => import(
         /* webpackChunkName: "worldmusic_rank" */
