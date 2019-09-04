@@ -111,10 +111,10 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/0'")
+  a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/0'")
     h2
       | 要素評価実験が終了いたしました。ペア類似度評価実験はこちらです。
-  a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/1'")
+  a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/1'")
     h2
       | 要素評価実験が終了いたしました。トリプル類似度評価実験はこちらです。
 </template>

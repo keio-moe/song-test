@@ -13,6 +13,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Button, Card, Form, FormItem, Input, Message, MessageBox } from 'element-ui';
 import * as rm from 'typed-rest-client/RestClient';
+import { isNullOrUndefined } from 'util';
 import consts from '@/consts';
 
 @Component({
@@ -27,8 +28,17 @@ import consts from '@/consts';
 })
 export default class CreateExperiment extends Vue {
   @Prop(String) private service!: string;
+  @Prop(String) private defaultUsername !: string;
   private username: string = '';
   private restClient: rm.RestClient = new rm.RestClient(window.navigator.userAgent, consts.host);
+
+  private mounted() {
+    if (!isNullOrUndefined(this.defaultUsername)) {
+      console.log('here');
+      console.log(this.defaultUsername);
+      this.username = this.defaultUsername;
+    }
+  }
 
   private async onSubmit() {
     if (this.username.length === 0) {

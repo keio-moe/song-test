@@ -1,6 +1,6 @@
 <template lang="pug">
 .world-music-similarity
-  create-experiment(:service="service", v-if="stage === 0", @created="experimentCreated")
+  create-experiment(:service="service", v-if="stage === 0", :defaultUsername="defaultUsername", @created="experimentCreated")
   el-card.experiment(v-if="stage === 1")
     div(slot="header", class="clearfix")
       el-form(label-width="80px", label-position="top")
@@ -37,7 +37,7 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2 && flag === 0", :href="'/experiments/worldmusic/' + subtype + '/rank/0'")
+  a.route(v-if="stage === 2 && flag === 0", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/0'")
     h4
       | ペア評価実験が終了いたしました。トリプル実験は、こちらへご覧ください。
   a.route(v-if="stage === 2 && flag === 1", href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
@@ -92,6 +92,7 @@ interface WorldMusicSimilarityEntry {
 export default class Copyright extends Vue {
   private subtype: string = '';
   private flag: number = 0;
+  private defaultUsername: string = '';
   private service: string = 'world_music_similarity';
   private username: string = '';
   private stage: number = 0;
@@ -108,6 +109,7 @@ export default class Copyright extends Vue {
   private mounted() {
     this.subtype = this.$route.params.subtype;
     this.flag = Number(this.$route.params.flag);
+    this.defaultUsername = this.$route.params.id;
     switch (this.subtype) {
       case 'workshop':
         this.service = 'world_music_workshop_similarity';
