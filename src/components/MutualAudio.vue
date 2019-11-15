@@ -1,5 +1,5 @@
 <template lang="pug">
-audio.audio(:controls="controls", @play="onPlay")
+audio.audio(:controls="controls", @play="onPlay", @end="onEnd")
   source(:src="src", :type="type")
 </template>
 
@@ -25,6 +25,10 @@ export default class CreateExperiment extends Vue {
         audio.currentTime = 0;
       }
     });
+  }
+
+  private onEnd(obj: any) {
+    console.log(obj);
   }
 }
 </script>
