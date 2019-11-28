@@ -6,7 +6,9 @@
     el-button(type="primary", @click="stage = 1")
       | {{ $t('agree') }}
   create-experiment(:service="service", v-if="stage === 1", @created="experimentCreated")
-  el-card.experiment(v-if="stage === 2")
+  a.route(href="https://forms.gle/do5sUcSyRRb5GQk16", target="_black", v-if="stage === 2", @click="stage = 3")
+      | 実験前アンケート
+  el-card.experiment(v-if="stage === 3")
     div(slot="header", class="clearfix")
       el-form(label-width="80px", label-position="top")
         el-form-item(:label="$t('progress')")
@@ -163,4 +165,10 @@ export default class Copyright extends Vue {
   margin-top 12px
 .label
   font-weight bold
+.route
+  text-align center
+  display block
+  margin 40px 0
+  font-size 24px
+  color #42b983
 </style>

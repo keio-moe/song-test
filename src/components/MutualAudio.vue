@@ -28,7 +28,7 @@ export default class CreateExperiment extends Vue {
   }
 
   private onEnd(obj: any) {
-    console.log(obj);
+    // console.log(obj);
   }
 }
 </script>
