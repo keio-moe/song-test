@@ -24,6 +24,14 @@ export default new Router({
         './views/About.vue'),
     },
     {
+      path: '/experiments/aesthetics',
+      name: 'aesthetics',
+      component: () => import(
+        /* webpackChunkName: "aesthetics" */
+        /* webpackMode: "lazy" */
+        './views/experiments/Aesthetics.vue'),
+    },
+    {
       path: '/experiments/copyright/:subtype',
       name: 'copyright',
       component: () => import(

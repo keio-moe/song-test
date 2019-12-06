@@ -1,10 +1,8 @@
 <template lang="pug">
-.copyright
+.aesthetics
   .privacy(v-if="stage === 0", :style="{ padding: '20px' }")
-    p(style="white-space: pre-line")
-      | {{ $t('copyrightLicense') }}
-    el-button(type="primary", @click="stage = 1")
-      | {{ $t('agree') }}
+    a.route(href="https://forms.gle/do5sUcSyRRb5GQk16", target="_black", @click="stage = 1")
+      | 実験前アンケート
   create-experiment(:service="service", v-if="stage === 1", @created="experimentCreated")
   el-card.experiment(v-if="stage === 2")
     div(slot="header", class="clearfix")
@@ -17,26 +15,36 @@
               | {{ wav.label }}:
             audio(controls)
               source(:src="wav.entity" type="audio/mpeg")
-        el-form-item(:label="$t('lyrics')", v-if="lyrics.length > 0")
-          div(v-for="lyric in lyrics" :key="lyric.entity")
-            p.label
-              | {{ lyric.label }}:
-            p(style="white-space: pre-line;")
-              | {{ fullLyrics[lyric.entity] }}
     el-form(label-width="80px", label-position="top")
-      el-form-item(:label="$t('similarityQuestion')")
-        el-radio(v-model="similarity" :label="0")
-          | {{ $t('similar0') }}
-        el-radio(v-model="similarity" :label="25")
-          | {{ $t('similar1') }}
-        el-radio(v-model="similarity" :label="50")
-          | {{ $t('similar2') }}
-        el-radio(v-model="similarity" :label="75")
-          | {{ $t('similar3') }}
-        el-radio(v-model="similarity" :label="100")
-          | {{ $t('similar4') }}
-      el-form-item(:label="$t('infringeQuestion')")
-        el-switch(v-model="infringe", :active-text="$t('infringe')", :inactive-text="$t('notInfringe')")
+      el-form-item(:label="$t('pleasantQuestion')")
+        el-radio(v-model="pleasant" :label="0")
+          | {{ $t('pleasant0') }}
+        el-radio(v-model="pleasant" :label="1")
+          | {{ $t('pleasant1') }}
+        el-radio(v-model="pleasant" :label="2")
+          | {{ $t('pleasant2') }}
+        el-radio(v-model="pleasant" :label="3")
+          | {{ $t('pleasant3') }}
+    el-form(label-width="80px", label-position="top")
+      el-form-item(:label="$t('consonantQuestion')")
+        el-radio(v-model="consonant" :label="0")
+          | {{ $t('consonant0') }}
+        el-radio(v-model="consonant" :label="1")
+          | {{ $t('consonant1') }}
+        el-radio(v-model="consonant" :label="2")
+          | {{ $t('consonant2') }}
+        el-radio(v-model="consonant" :label="3")
+          | {{ $t('consonant3') }}
+    el-form(label-width="80px", label-position="top")
+      el-form-item(:label="$t('beautifulQuestion')")
+        el-radio(v-model="beautiful" :label="0")
+          | {{ $t('beautiful0') }}
+        el-radio(v-model="beautiful" :label="1")
+          | {{ $t('beautiful1') }}
+        el-radio(v-model="beautiful" :label="2")
+          | {{ $t('beautiful2') }}
+        el-radio(v-model="beautiful" :label="3")
+          | {{ $t('beautiful3') }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -50,7 +58,6 @@ import { Button, Card, Form, FormItem, Input, Progress, Radio, Switch } from 'el
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
-import fullLyrics from '@/assets/copyright_lyrics';
 
 
 interface Entry<T> {
@@ -63,7 +70,7 @@ interface Labeled<T> {
   entity: T;
 }
 
-interface CopyrightEntry {
+interface AestheticsEntry {
   progress: number;
   wavs: Array<Labeled<string>>;
   lyrics: Array<Labeled<string>>;
@@ -71,7 +78,7 @@ interface CopyrightEntry {
 }
 
 @Component({
-  name: 'Copyright',
+  name: 'Aesthetics',
   components: {
     'create-experiment': () => import('@/components/CreateExperiment.vue'),
     'el-button': Button,
@@ -85,34 +92,23 @@ interface CopyrightEntry {
   },
 })
 
-export default class Copyright extends Vue {
+export default class Aesthetics extends Vue {
   private subtype: string = '';
   private service: string = '';
   private username: string = '';
   private stage: number = 0;
-  private fullLyrics = fullLyrics;
 
   private progress: number = 0;
   private wavs: Array<Labeled<string>> = [];
-  private lyrics: Array<Labeled<string>> = [];
   private entityId: number = 0;
-  private similarity: number = 50;
-  private infringe: boolean = false;
+  private pleasant: number = 0;
+  private consonant: number = 0;
+  private beautiful: number = 0;
 
   private restClient: rm.RestClient = new rm.RestClient(window.navigator.userAgent, consts.host);
 
   private mounted() {
-    this.subtype = this.$route.params.subtype;
-    switch (this.subtype) {
-      case 'workshop':
-        this.service = 'copyright_workshop';
-        break;
-      case 'full':
-        this.service = 'copyright_full';
-        break;
-      default:
-        this.service = '';
-    }
+    this.service = 'aesthetics';
   }
 
   private experimentCreated(username: string) {
@@ -122,18 +118,19 @@ export default class Copyright extends Vue {
   }
 
   private async nextEntity() {
-    this.similarity = 50;
-    this.infringe = false;
+    this.pleasant = 0;
+    this.consonant = 0;
+    this.beautiful = 0;
+
     const query: string = queryString.stringify({
       username: this.username,
     });
-    const resp = await this.restClient.get<Entry<CopyrightEntry>>(`experiments/${this.service}?${query}`);
+    const resp = await this.restClient.get<Entry<AestheticsEntry>>(`experiments/${this.service}?${query}`);
     if (resp.statusCode === 404) {
       this.stage = 3;
       return;
     }
     this.progress = resp.result!.data.progress;
-    this.lyrics = resp.result!.data.lyrics;
     this.wavs = resp.result!.data.wavs;
     this.entityId = resp.result!.data.id;
   }
@@ -142,8 +139,9 @@ export default class Copyright extends Vue {
     await this.restClient.replace(`experiments/${this.service}`, {
       username: this.username,
       id: this.entityId,
-      similarity: this.similarity,
-      infringe: this.infringe,
+      pleasant: this.pleasant,
+      consonant: this.consonant,
+      beautiful: this.beautiful,
     });
     this.nextEntity();
   }

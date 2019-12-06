@@ -19,6 +19,10 @@ interface RouteDefinition {
 export default class Home extends Vue {
   private routes: RouteDefinition[] = [
     {
+      title: 'aesthetics',
+      src: '/experiments/aesthetics',
+    },
+    {
       title: 'copyrightWorkshop',
       src: '/experiments/copyright/workshop',
     },
