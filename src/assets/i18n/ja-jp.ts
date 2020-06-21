@@ -10,6 +10,7 @@ const translation: any = {
   beautiful3: 'とても美しい',
   beautifulQuestion: 'どれくらい美しいですか？',
   copyrightLicense: copyrightLicense.default,
+  copyrightNewWorkshop: '知的財産権実験（新しいワークショップ）',
   copyrightWorkshop: '知的財産権実験（ワークショップ）',
   copyrightFull: '知的財産権実験（完全版）',
   consonance: '協和音',

@@ -10,6 +10,7 @@ const translation: any = {
   beautifulQuestion: 'Is it beautiful?',
   cancel: 'Cancel',
   copyrightLicense: copyrightLicense.default,
+  copyrightNewWorkshop: 'Copyright Experiment (New Workshop)',
   copyrightWorkshop: 'Copyright Experiment (Workshop)',
   copyrightFull: 'Copyright Experiment (Full)',
   consonance: 'Consonance',

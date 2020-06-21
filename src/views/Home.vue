@@ -22,13 +22,17 @@ export default class Home extends Vue {
       title: 'aesthetics',
       src: '/experiments/aesthetics',
     },
-    {
-      title: 'copyrightWorkshop',
-      src: '/experiments/copyright/workshop',
-    },
+    // {
+    //   title: 'copyrightWorkshop',
+    //   src: '/experiments/copyright/workshop',
+    // },
     {
       title: 'copyrightFull',
       src: '/experiments/copyright/full',
+    },
+    {
+      title: 'copyrightNewWorkshop',
+      src: '/experiments/copyright/new_workshop',
     },
     // {
     //   title: 'worldMusic',

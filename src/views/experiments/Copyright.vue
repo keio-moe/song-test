@@ -51,6 +51,7 @@ import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
 import fullLyrics from '@/assets/copyright_lyrics';
+import newWorkshopLyrics from '@/assets/copyright_new_workshop_lyrics';
 
 
 interface Entry<T> {
@@ -90,7 +91,7 @@ export default class Copyright extends Vue {
   private service: string = '';
   private username: string = '';
   private stage: number = 0;
-  private fullLyrics = fullLyrics;
+  private fullLyrics = {};
 
   private progress: number = 0;
   private wavs: Array<Labeled<string>> = [];
@@ -109,6 +110,11 @@ export default class Copyright extends Vue {
         break;
       case 'full':
         this.service = 'copyright_full';
+        this.fullLyrics = fullLyrics;
+        break;
+      case 'new_workshop':
+        this.service = 'copyright_new_workshop';
+        this.fullLyrics = newWorkshopLyrics;
         break;
       default:
         this.service = '';
