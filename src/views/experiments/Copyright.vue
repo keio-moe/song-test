@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Button, Card, Form, FormItem, Input, Progress, Radio, Switch } from 'element-ui';
+import { Button, Card, Form, FormItem, Input, Message, Progress, Radio, Switch } from 'element-ui';
 import * as rm from 'typed-rest-client/RestClient';
 import * as queryString from 'query-string';
 import consts from '@/consts';
@@ -101,8 +101,8 @@ export default class Copyright extends Vue {
   private wavs: Array<Labeled<string>> = [];
   private lyrics: Array<Labeled<string>> = [];
   private entityId: number = 0;
-  private similarity: number = 50;
-  private infringe: boolean = false;
+  private similarity: number | null = null;
+  private infringe: boolean | null = null;
 
   private restClient: rm.RestClient = new rm.RestClient(window.navigator.userAgent, consts.host);
 
@@ -132,8 +132,8 @@ export default class Copyright extends Vue {
   }
 
   private async nextEntity() {
-    this.similarity = 50;
-    this.infringe = false;
+    this.similarity = null;
+    this.infringe = null;
     const query: string = queryString.stringify({
       username: this.username,
     });
@@ -149,6 +149,14 @@ export default class Copyright extends Vue {
   }
 
   private async onSubmit() {
+    if (this.similarity == null || this.infringe == null) {
+      Message({
+        message: 'All options have to be selected.',
+        type: 'error',
+      });
+
+      return;
+    }
     await this.restClient.replace(`experiments/${this.service}`, {
       username: this.username,
       id: this.entityId,
