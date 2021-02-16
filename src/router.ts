@@ -48,6 +48,14 @@ export default new Router({
         './views/experiments/WorldMusicEvaluation.vue'),
     },
     {
+      path: '/experiments/indianmusic/:subtype/evaluation',
+      name: 'indian_music_evaluation',
+      component: () => import(
+        /* webpackChunkName: "worldmusic_evaluation" */
+        /* webpackMode: "lazy" */
+        './views/experiments/IndianMusicEvaluation.vue'),
+    },
+    {
       path: '/experiments/worldmusic/:subtype/similarity/:id/:flag',
       name: 'worldmusic_similarity',
       component: () => import(
