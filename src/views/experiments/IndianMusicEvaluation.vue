@@ -24,99 +24,11 @@
           | {{ $t('worldMusicMedium1') }}
         el-radio(v-model="decoration", :label="100")
           | {{ $t('worldMusicHigh1') }}
-      el-form-item(:label="$t('worldMusicFeature2')")
-        el-radio(v-model="groove", :label="0")
-          | {{ $t('worldMusicLow2') }}
-        el-radio(v-model="groove", :label="50")
-          | {{ $t('worldMusicMedium2') }}
-        el-radio(v-model="groove", :label="100")
-          | {{ $t('worldMusicHigh2') }}
-      el-form-item(:label="$t('worldMusicFeature3')")
-        el-radio(v-model="creativity", :label="0")
-          | {{ $t('worldMusicLow3') }}
-        el-radio(v-model="creativity", :label="50")
-          | {{ $t('worldMusicMedium3') }}
-        el-radio(v-model="creativity", :label="100")
-          | {{ $t('worldMusicHigh3') }}
-      el-form-item(:label="$t('worldMusicFeature4')")
-        el-radio(v-model="likeness", :label="0")
-          | {{ $t('worldMusicLow4') }}
-        el-radio(v-model="likeness", :label="50")
-          | {{ $t('worldMusicMedium4') }}
-        el-radio(v-model="likeness", :label="100")
-          | {{ $t('worldMusicHigh4') }}
-      el-form-item(:label="$t('worldMusicFeature5')")
-        el-radio(v-model="consonance", :label="0")
-          | {{ $t('worldMusicLow5') }}
-        el-radio(v-model="consonance", :label="50")
-          | {{ $t('worldMusicMedium5') }}
-        el-radio(v-model="consonance", :label="100")
-          | {{ $t('worldMusicHigh5') }}
-      el-form-item(:label="$t('worldMusicFeature6')")
-        el-radio(v-model="emotion", :label="0")
-          | {{ $t('worldMusicLow6') }}
-        el-radio(v-model="emotion", :label="50")
-          | {{ $t('worldMusicMedium6') }}
-        el-radio(v-model="emotion", :label="100")
-          | {{ $t('worldMusicHigh6') }}
-      el-form-item(:label="$t('worldMusicFeature7')")
-        el-radio(v-model="excitingness", :label="0")
-          | {{ $t('worldMusicLow7') }}
-        el-radio(v-model="excitingness", :label="50")
-          | {{ $t('worldMusicMedium7') }}
-        el-radio(v-model="excitingness", :label="100")
-          | {{ $t('worldMusicHigh7') }}
-      el-form-item(:label="$t('worldMusicFeature8')")
-        el-radio(v-model="range", :label="0")
-          | {{ $t('worldMusicLow8') }}
-        el-radio(v-model="range", :label="50")
-          | {{ $t('worldMusicMedium8') }}
-        el-radio(v-model="range", :label="100")
-          | {{ $t('worldMusicHigh8') }}
-      el-form-item(:label="$t('worldMusicFeature9')")
-        el-radio(v-model="quality", :label="0")
-          | {{ $t('worldMusicLow9') }}
-        el-radio(v-model="quality", :label="50")
-          | {{ $t('worldMusicMedium9') }}
-        el-radio(v-model="quality", :label="100")
-          | {{ $t('worldMusicHigh9') }}
-      el-form-item(:label="$t('worldMusicFeature10')")
-        el-radio(v-model="tempo", :label="0")
-          | {{ $t('worldMusicLow10') }}
-        el-radio(v-model="tempo", :label="50")
-          | {{ $t('worldMusicMedium10') }}
-        el-radio(v-model="tempo", :label="100")
-          | {{ $t('worldMusicHigh10') }}
-      el-form-item(:label="$t('worldMusicFeature11')")
-        el-radio(v-model="rhythm", :label="0")
-          | {{ $t('worldMusicLow11') }}
-        el-radio(v-model="rhythm", :label="50")
-          | {{ $t('worldMusicMedium11') }}
-        el-radio(v-model="rhythm", :label="100")
-          | {{ $t('worldMusicHigh11') }}
-      el-form-item(:label="$t('worldMusicFeature12')")
-        el-radio(v-model="timbre", :label="0")
-          | {{ $t('worldMusicLow12') }}
-        el-radio(v-model="timbre", :label="50")
-          | {{ $t('worldMusicMedium12') }}
-        el-radio(v-model="timbre", :label="100")
-          | {{ $t('worldMusicHigh12') }}
-      el-form-item(:label="$t('worldMusicFeature13')")
-        el-radio(v-model="overlap", :label="0")
-          | {{ $t('worldMusicLow13') }}
-        el-radio(v-model="overlap", :label="50")
-          | {{ $t('worldMusicMedium13') }}
-        el-radio(v-model="overlap", :label="100")
-          | {{ $t('worldMusicHigh13') }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/0'")
-    h2
-      | 要素評価実験が終了いたしました。ペア類似度評価実験はこちらです。
-  a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/1'")
-    h2
-      | 要素評価実験が終了いたしました。トリプル類似度評価実験はこちらです。
+  h2(v-if="stage === 2")
+    | Experiment Finished
 </template>
 
 <script lang="ts">
@@ -163,13 +75,9 @@ interface WorldMusicEvaluationEntry {
 })
 
 export default class Copyright extends Vue {
-  private subtype: string = '';
-  private service: string = 'world_music_evaluation';
+  private service: string = 'indian_music_evaluation';
   private username: string = '';
   private stage: number = 0;
-
-  private random: number = Math.floor(Math.random() * 2);
-
   private progress: number = 0;
   private wavs: Array<Labeled<string>> = [];
   private entityId: number = 0;
@@ -194,23 +102,6 @@ export default class Copyright extends Vue {
 
   private restClient: rm.RestClient = new rm.RestClient(window.navigator.userAgent, consts.host);
 
-  private mounted() {
-    this.subtype = this.$route.params.subtype;
-    switch (this.subtype) {
-      case 'workshop':
-        this.service = 'world_music_workshop_evaluation';
-        break;
-      case 'full':
-        this.service = 'world_music_evaluation';
-        break;
-      case 'yamaha':
-        this.service = 'world_music_yamaha_evaluation';
-        break;
-      default:
-        this.service = '';
-    }
-  }
-
   private experimentCreated(username: string) {
     this.username = username;
     this.stage = 1;
@@ -231,6 +122,10 @@ export default class Copyright extends Vue {
     this.excitingness = 50;
     this.groove = 50;
     this.timbre = 50;
+    this.instrument_vocals = 50;
+    this.instrument_overlap = 50;
+    this.instrument_tone_blend = 50;
+    this.instrument_rhythm_blend = 50;
 
     const query: string = queryString.stringify({
       username: this.username,
