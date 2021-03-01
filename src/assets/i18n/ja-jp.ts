@@ -1,5 +1,6 @@
 import * as copyrightLicense from '../licences/copyright_jp.txt';
 import * as worldMusic from './labels/word_music.json';
+import * as indianMusic from './labels/indian_music.json';
 
 const translation: any = {
   agree: '同意する',
@@ -72,5 +73,16 @@ worldMusicJson.forEach((item) => {
   translation[`worldMusicHigh${item.ID}`] = item['High JP'] as string;
   translation[`worldMusicExplanation${item.ID}`] = item['Explanation JP'] as string;
 });
+
+const indianMusicJson = indianMusic.default as any[];
+
+indianMusicJson.forEach((item) => {
+  translation[`indianMusicFeature${item.ID}`] = item['Feature Name JP'] as string;
+  translation[`indianMusicLow${item.ID}`] = item['Low JP'] as string;
+  translation[`indianMusicMedium${item.ID}`] = item['Medium JP'] as string;
+  translation[`indianMusicHigh${item.ID}`] = item['High JP'] as string;
+  translation[`indianMusicExplanation${item.ID}`] = item['Explanation JP'] as string;
+});
+
 
 export default translation;

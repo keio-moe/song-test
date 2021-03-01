@@ -13,9 +13,6 @@
             p.label
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
-        el-form-item(label="説明")
-          el-button(type="primary", @click="goToManual")
-            | 説明
     el-form.questionnaire(label-width="80px", label-position="top")
       el-form-item(:label="$t('worldMusicFeature1')")
         el-radio(v-model="decoration", :label="0")
