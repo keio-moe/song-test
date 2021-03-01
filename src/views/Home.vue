@@ -54,6 +54,10 @@ export default class Home extends Vue {
     //   title: 'worldMusicYamaha',
     //   src: '/experiments/worldmusic/yamaha/evaluation',
     // },
+    {
+      title: 'indianMusic',
+      src: '/experiments/indian_music_evaluation',
+    },
   ];
 }
 </script>
