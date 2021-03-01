@@ -14,13 +14,13 @@
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
     el-form.questionnaire(label-width="80px", label-position="top")
-      el-form-item(:label="$t('worldMusicFeature1')")
+      el-form-item(:label="$t('indianMusicFeature1')")
         el-radio(v-model="decoration", :label="0")
-          | {{ $t('worldMusicLow1') }}
+          | {{ $t('indianMusicLow1') }}
         el-radio(v-model="decoration", :label="50")
-          | {{ $t('worldMusicMedium1') }}
+          | {{ $t('indianMusicMedium1') }}
         el-radio(v-model="decoration", :label="100")
-          | {{ $t('worldMusicHigh1') }}
+          | {{ $t('indianMusicHigh1') }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -137,9 +137,9 @@ export default class Copyright extends Vue {
     this.entityId = resp.result!.data.id;
   }
 
-  private goToManual() {
-    window.open('https://hideodaikoku.github.io/feat-explanation/', '_blank');
-  }
+  // private goToManual() {
+  //   window.open('https://hideodaikoku.github.io/feat-explanation/', '_blank');
+  // }
 
   private async onSubmit() {
     await this.restClient.replace(`experiments/${this.service}`, {
