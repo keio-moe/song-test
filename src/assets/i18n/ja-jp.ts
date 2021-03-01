@@ -77,6 +77,7 @@ worldMusicJson.forEach((item) => {
 const indianMusicJson = indianMusic.default as any[];
 
 indianMusicJson.forEach((item) => {
+  translation[`indianMusicModel${item.ID}`] = item.model as string;
   translation[`indianMusicFeature${item.ID}`] = item['Feature Name JP'] as string;
   translation[`indianMusicLow${item.ID}`] = item['Low JP'] as string;
   translation[`indianMusicMedium${item.ID}`] = item['Medium JP'] as string;

@@ -14,13 +14,13 @@
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
     el-form.questionnaire(label-width="80px", label-position="top")
-      el-form-item(:label="$t('indianMusicFeature1')")
-        el-radio(v-model="decoration", :label="0")
-          | {{ $t('indianMusicLow1') }}
-        el-radio(v-model="decoration", :label="50")
-          | {{ $t('indianMusicMedium1') }}
-        el-radio(v-model="decoration", :label="100")
-          | {{ $t('indianMusicHigh1') }}
+      el-form-item(v-for="id in 18", :key="id", :label="formModel(id).feature")
+        el-radio(v-model="formModel(id).model", :label="0")
+          | {{ formModel(id).low }}
+        el-radio(v-model="formModel(id).model", :label="50")
+          | {{ formModel(id).medium }}
+        el-radio(v-model="formModel(id).model", :label="100")
+          | {{ formModel(id).high }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -79,23 +79,24 @@ export default class Copyright extends Vue {
   private wavs: Array<Labeled<string>> = [];
   private entityId: number = 0;
 
-  private overlap: number = 50;
-  private creativity: number = 50;
-  private likeness: number = 50;
-  private tempo: number = 50;
+  private ornamentation: number = 50;
+  private grooviness: number = 50;
+  private familiarity: number = 50;
+  private liking: number = 50;
   private consonance: number = 50;
-  private emotion: number = 50;
-  private decoration: number = 50;
-  private range: number = 50;
-  private quality: number = 50;
-  private rhythm: number = 50;
-  private excitingness: number = 50;
-  private groove: number = 50;
-  private timbre: number = 50;
-  private instrument_vocals: number = 50;
-  private instrument_overlap: number = 50;
-  private instrument_tone_blend: number = 50;
-  private instrument_rhythm_blend: number = 50;
+  private valence: number = 50;
+  private excitement: number = 50;
+  private soundQuality: number = 50;
+  private tempo: number = 50;
+  private rhythmicRegularity: number = 50;
+  private vocalRange: number = 50;
+  private vocalTension: number = 50;
+  private vocalTexture: number = 50;
+  private nonVocalInstruments: number = 50;
+  private instrumentVocalOverlap: number = 50;
+  private instrumentOverlap: number = 50;
+  private instrumentToneBlend: number = 50;
+  private instrumentRhythmBlend: number = 50;
 
   private restClient: rm.RestClient = new rm.RestClient(window.navigator.userAgent, consts.host);
 
@@ -106,23 +107,23 @@ export default class Copyright extends Vue {
   }
 
   private async nextEntity() {
-    this.overlap = 50;
-    this.creativity = 50;
-    this.likeness = 50;
-    this.tempo = 50;
+    this.ornamentation = 50;
+    this.grooviness = 50;
+    this.familiarity = 50;
+    this.liking = 50;
     this.consonance = 50;
-    this.emotion = 50;
-    this.decoration = 50;
-    this.range = 50;
-    this.quality = 50;
-    this.rhythm = 50;
-    this.excitingness = 50;
-    this.groove = 50;
-    this.timbre = 50;
-    this.instrument_vocals = 50;
-    this.instrument_overlap = 50;
-    this.instrument_tone_blend = 50;
-    this.instrument_rhythm_blend = 50;
+    this.valence = 50;
+    this.excitement = 50;
+    this.soundQuality = 50;
+    this.tempo = 50;
+    this.rhythmicRegularity = 50;
+    this.vocalRange = 50;
+    this.vocalTension = 50;
+    this.vocalTexture = 50;
+    this.nonVocalInstruments = 50;
+    this.instrumentVocalOverlap = 50;
+    this.instrumentToneBlend = 50;
+    this.instrumentRhythmBlend = 50;
 
     const query: string = queryString.stringify({
       username: this.username,
@@ -141,27 +142,38 @@ export default class Copyright extends Vue {
   //   window.open('https://hideodaikoku.github.io/feat-explanation/', '_blank');
   // }
 
+  private formModel(id: number) {
+    return {
+      model: (this as any)[this.$t(`indianMusicModel${id}`).toString()],
+      feature: this.$t(`indianMusicFeature${id}`),
+      low: this.$t(`indianMusicLow${id}`),
+      medium: this.$t(`indianMusicMedium${id}`),
+      high: this.$t(`indianMusicHigh${id}`),
+    };
+  }
+
   private async onSubmit() {
     await this.restClient.replace(`experiments/${this.service}`, {
       username: this.username,
       id: this.entityId,
-      overlap: this.overlap,
-      creativity: this.creativity,
-      likeness: this.likeness,
-      tempo: this.tempo,
+      ornamentation: this.ornamentation,
+      grooviness: this.grooviness,
+      familiarity: this.familiarity,
+      liking: this.liking,
       consonance: this.consonance,
-      emotion: this.emotion,
-      decoration: this.decoration,
-      range: this.range,
-      quality: this.quality,
-      rhythm: this.rhythm,
-      excitingness: this.excitingness,
-      groove: this.groove,
-      timbre: this.timbre,
-      instrument_vocals: this.instrument_vocals,
-      instrument_overlap: this.instrument_overlap,
-      instrument_tone_blend: this.instrument_tone_blend,
-      instrument_rhythm_blend: this.instrument_rhythm_blend,
+      valence: this.valence,
+      excitement: this.excitement,
+      sound_quality: this.soundQuality,
+      tempo: this.tempo,
+      rhythm_regularity: this.rhythmicRegularity,
+      vocal_range: this.vocalRange,
+      vocal_tension: this.vocalTension,
+      vocal_texture: this.vocalTexture,
+      non_vocal_instruments: this.nonVocalInstruments,
+      instrument_vocal_overlap: this.instrumentVocalOverlap,
+      instrument_overlap: this.instrumentOverlap,
+      instrument_tone_blend: this.instrumentToneBlend,
+      instrument_rhythm_blend: this.instrumentRhythmBlend,
     });
     this.nextEntity();
     window.scrollTo(0, 0);

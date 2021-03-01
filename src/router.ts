@@ -71,5 +71,13 @@ export default new Router({
         /* webpackMode: "lazy" */
         './views/experiments/WorldMusicRank.vue'),
     },
+    {
+      path: '/experiments/indian_music_evaluation',
+      name: 'indian_music',
+      component: () => import(
+        /* webpackChunkName: "indian_music" */
+        /* webpackMode: "lazy" */
+        './views/experiments/IndianMusicEvaluation.vue'),
+    },
   ],
 });
