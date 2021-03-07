@@ -14,13 +14,132 @@
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
     el-form.questionnaire(label-width="80px", label-position="top")
-      el-form-item(v-for="id in 18", :key="id", :label="formModel(id).feature")
-        el-radio(v-model="formModel(id).model", :label="0")
-          | {{ formModel(id).low }}
-        el-radio(v-model="formModel(id).model", :label="50")
-          | {{ formModel(id).medium }}
-        el-radio(v-model="formModel(id).model", :label="100")
-          | {{ formModel(id).high }}
+      el-form-item(:label="formModel(1).feature")
+        el-radio(v-model="ornamentation", :label="0")
+          | {{ formModel(1).low }}
+        el-radio(v-model="ornamentation", :label="50")
+          | {{ formModel(1).medium }}
+        el-radio(v-model="ornamentation", :label="100")
+          | {{ formModel(1).high }}
+      el-form-item(:label="formModel(2).feature")
+        el-radio(v-model="grooviness", :label="0")
+          | {{ formModel(2).low }}
+        el-radio(v-model="grooviness", :label="50")
+          | {{ formModel(2).medium }}
+        el-radio(v-model="grooviness", :label="100")
+          | {{ formModel(2).high }}
+      el-form-item(:label="formModel(3).feature")
+        el-radio(v-model="familiarity", :label="0")
+          | {{ formModel(3).low }}
+        el-radio(v-model="familiarity", :label="50")
+          | {{ formModel(3).medium }}
+        el-radio(v-model="familiarity", :label="100")
+          | {{ formModel(3).high }}
+      el-form-item(:label="formModel(4).feature")
+        el-radio(v-model="liking", :label="0")
+          | {{ formModel(4).low }}
+        el-radio(v-model="liking", :label="50")
+          | {{ formModel(4).medium }}
+        el-radio(v-model="liking", :label="100")
+          | {{ formModel(4).high }}
+      el-form-item(:label="formModel(5).feature")
+        el-radio(v-model="consonance", :label="0")
+          | {{ formModel(5).low }}
+        el-radio(v-model="consonance", :label="50")
+          | {{ formModel(5).medium }}
+        el-radio(v-model="consonance", :label="100")
+          | {{ formModel(5).high }}
+      el-form-item(:label="formModel(6).feature")
+        el-radio(v-model="valence", :label="0")
+          | {{ formModel(6).low }}
+        el-radio(v-model="valence", :label="50")
+          | {{ formModel(6).medium }}
+        el-radio(v-model="valence", :label="100")
+          | {{ formModel(6).high }}
+      el-form-item(:label="formModel(7).feature")
+        el-radio(v-model="excitement", :label="0")
+          | {{ formModel(7).low }}
+        el-radio(v-model="excitement", :label="50")
+          | {{ formModel(7).medium }}
+        el-radio(v-model="excitement", :label="100")
+          | {{ formModel(7).high }}
+      el-form-item(:label="formModel(8).feature")
+        el-radio(v-model="vocalRange", :label="0")
+          | {{ formModel(8).low }}
+        el-radio(v-model="vocalRange", :label="50")
+          | {{ formModel(8).medium }}
+        el-radio(v-model="vocalRange", :label="100")
+          | {{ formModel(8).high }}
+      el-form-item(:label="formModel(9).feature")
+        el-radio(v-model="soundQuality", :label="0")
+          | {{ formModel(9).low }}
+        el-radio(v-model="soundQuality", :label="50")
+          | {{ formModel(9).medium }}
+        el-radio(v-model="soundQuality", :label="100")
+          | {{ formModel(9).high }}
+      el-form-item(:label="formModel(10).feature")
+        el-radio(v-model="tempo", :label="0")
+          | {{ formModel(10).low }}
+        el-radio(v-model="tempo", :label="50")
+          | {{ formModel(10).medium }}
+        el-radio(v-model="tempo", :label="100")
+          | {{ formModel(10).high }}
+      el-form-item(:label="formModel(11).feature")
+        el-radio(v-model="rhythmicRegularity", :label="0")
+          | {{ formModel(11).low }}
+        el-radio(v-model="rhythmicRegularity", :label="50")
+          | {{ formModel(11).medium }}
+        el-radio(v-model="rhythmicRegularity", :label="100")
+          | {{ formModel(11).high }}
+      el-form-item(:label="formModel(12).feature")
+        el-radio(v-model="vocalTension", :label="0")
+          | {{ formModel(12).low }}
+        el-radio(v-model="vocalTension", :label="50")
+          | {{ formModel(12).medium }}
+        el-radio(v-model="vocalTension", :label="100")
+          | {{ formModel(12).high }}
+      el-form-item(:label="formModel(13).feature")
+        el-radio(v-model="vocalTexture", :label="0")
+          | {{ formModel(13).low }}
+        el-radio(v-model="vocalTexture", :label="50")
+          | {{ formModel(13).medium }}
+        el-radio(v-model="vocalTexture", :label="100")
+          | {{ formModel(13).high }}
+      el-form-item(:label="formModel(14).feature")
+        el-radio(v-model="nonVocalInstruments", :label="0")
+          | {{ formModel(14).low }}
+        el-radio(v-model="nonVocalInstruments", :label="50")
+          | {{ formModel(14).medium }}
+        el-radio(v-model="nonVocalInstruments", :label="100")
+          | {{ formModel(14).high }}
+      el-form-item(:label="formModel(15).feature")
+        el-radio(v-model="instrumentVocalOverlap", :label="0")
+          | {{ formModel(15).low }}
+        el-radio(v-model="instrumentVocalOverlap", :label="50")
+          | {{ formModel(15).medium }}
+        el-radio(v-model="instrumentVocalOverlap", :label="100")
+          | {{ formModel(15).high }}
+      el-form-item(:label="formModel(16).feature")
+        el-radio(v-model="instrumentOverlap", :label="0")
+          | {{ formModel(16).low }}
+        el-radio(v-model="instrumentOverlap", :label="50")
+          | {{ formModel(16).medium }}
+        el-radio(v-model="instrumentOverlap", :label="100")
+          | {{ formModel(16).high }}
+      el-form-item(:label="formModel(17).feature")
+        el-radio(v-model="instrumentToneBlend", :label="0")
+          | {{ formModel(17).low }}
+        el-radio(v-model="instrumentToneBlend", :label="50")
+          | {{ formModel(17).medium }}
+        el-radio(v-model="instrumentToneBlend", :label="100")
+          | {{ formModel(17).high }}
+      el-form-item(:label="formModel(18).feature")
+        el-radio(v-model="instrumentRhythmBlend", :label="0")
+          | {{ formModel(18).low }}
+        el-radio(v-model="instrumentRhythmBlend", :label="50")
+          | {{ formModel(18).medium }}
+        el-radio(v-model="instrumentRhythmBlend", :label="100")
+          | {{ formModel(18).high }}
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
@@ -144,7 +263,6 @@ export default class Copyright extends Vue {
 
   private formModel(id: number) {
     return {
-      model: (this as any)[this.$t(`indianMusicModel${id}`).toString()],
       feature: this.$t(`indianMusicFeature${id}`),
       low: this.$t(`indianMusicLow${id}`),
       medium: this.$t(`indianMusicMedium${id}`),
@@ -165,7 +283,7 @@ export default class Copyright extends Vue {
       excitement: this.excitement,
       sound_quality: this.soundQuality,
       tempo: this.tempo,
-      rhythm_regularity: this.rhythmicRegularity,
+      rhythmic_regularity: this.rhythmicRegularity,
       vocal_range: this.vocalRange,
       vocal_tension: this.vocalTension,
       vocal_texture: this.vocalTexture,
