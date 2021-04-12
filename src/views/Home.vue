@@ -19,7 +19,11 @@ interface RouteDefinition {
 export default class Home extends Vue {
   private routes: RouteDefinition[] = [
     {
-      title: 'aesthetics',
+      title: 'Indian Music Experiment',
+      src: '/experiments/indian_music_evaluation',
+    },
+    {
+      title: 'Aesthetics Experiment',
       src: '/experiments/aesthetics',
     },
     // {
@@ -27,11 +31,11 @@ export default class Home extends Vue {
     //   src: '/experiments/copyright/workshop',
     // },
     {
-      title: 'copyrightFull',
+      title: 'Full Copyright',
       src: '/experiments/copyright/full',
     },
     {
-      title: 'copyrightNewWorkshop',
+      title: 'New Copyright Workshop',
       src: '/experiments/copyright/new_workshop',
     },
     // {
@@ -39,7 +43,7 @@ export default class Home extends Vue {
     //   src: '/experiments/worldmusic/full/evaluation',
     // },
     {
-      title: 'worldMusicWorkshop',
+      title: 'World Music Workshop',
       src: '/experiments/worldmusic/workshop/evaluation',
     },
     // {
@@ -54,20 +58,31 @@ export default class Home extends Vue {
     //   title: 'worldMusicYamaha',
     //   src: '/experiments/worldmusic/yamaha/evaluation',
     // },
-    {
-      title: 'indianMusic',
-      src: '/experiments/indian_music_evaluation',
-    },
   ];
 }
 </script>
 
 <style lang="stylus" scoped>
 .routes
-  text-align center
+  display flex
+  flex-direciton row
+  min-width 400px
+  max-width 800px
+  margin 0 auto
+  flex-wrap wrap
   a.route
-    display block
-    margin 40px 0
+    text-transform uppercase
+    width 40%
     font-size 24px
+    color white
+    text-decoration none
+    padding 3rem 1rem
+    background-color #42b983
+    border-radius 5px
+    border 1px solid #42b983
+    height 10rem
+    margin 5px
+  a.route:hover
+    background-color white
     color #42b983
 </style>

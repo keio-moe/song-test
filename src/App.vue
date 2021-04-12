@@ -44,6 +44,9 @@ body
   padding 30px
   a
     font-weight bold
+    font-size 1.8rem
+    text-transform uppercase
+    text-decoration none
     color #2c3e50
     &.router-link-exact-active
       color #42b983
