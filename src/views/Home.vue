@@ -2,7 +2,7 @@
 .home
   .routes
     a.route(v-for="route in routes", :href="route.src")
-      | {{ $t(route.title) }}
+      | {{ $t(route.label) }}
 </template>
 
 <script lang="ts">
@@ -10,6 +10,7 @@ import { Component, Vue } from 'vue-property-decorator';
 
 interface RouteDefinition {
   title: string;
+  label: string;
   src: string;
 }
 
@@ -19,11 +20,13 @@ interface RouteDefinition {
 export default class Home extends Vue {
   private routes: RouteDefinition[] = [
     {
-      title: 'Indian Music Experiment',
+      title: 'indianMusic',
+      label: 'Indian Music Experiment',
       src: '/experiments/indian_music_evaluation',
     },
     {
-      title: 'Aesthetics Experiment',
+      title: 'aesthetics',
+      label: 'Aesthetics Experiment',
       src: '/experiments/aesthetics',
     },
     // {
@@ -31,11 +34,13 @@ export default class Home extends Vue {
     //   src: '/experiments/copyright/workshop',
     // },
     {
-      title: 'Full Copyright',
+      title: 'copyrightFull',
+      label: 'Full Copyright',
       src: '/experiments/copyright/full',
     },
     {
-      title: 'New Copyright Workshop',
+      title: 'copyrightNewWorkshop',
+      label: 'New Copyright Workshop',
       src: '/experiments/copyright/new_workshop',
     },
     // {
@@ -43,7 +48,8 @@ export default class Home extends Vue {
     //   src: '/experiments/worldmusic/full/evaluation',
     // },
     {
-      title: 'World Music Workshop',
+      title: 'worldMusicWorkshop',
+      label: 'World Music Workshop',
       src: '/experiments/worldmusic/workshop/evaluation',
     },
     // {
