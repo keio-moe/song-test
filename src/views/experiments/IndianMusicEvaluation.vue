@@ -105,13 +105,6 @@
           | {{ formModel(13).medium }}
         el-radio(v-model="vocalTexture", :label="100")
           | {{ formModel(13).high }}
-      el-form-item(:label="formModel(14).feature", title="How many instruments besides voices are present?" class="form-label")
-        el-radio(v-model="nonVocalInstruments", :label="0")
-          | {{ formModel(14).low }}
-        el-radio(v-model="nonVocalInstruments", :label="50")
-          | {{ formModel(14).medium }}
-        el-radio(v-model="nonVocalInstruments", :label="100")
-          | {{ formModel(14).high }}
       el-form-item(:label="formModel(15).feature", title="Do the instrumentals and vocals play the same melody? " class="form-label")
         el-radio(v-model="instrumentVocalOverlap", :label="0")
           | {{ formModel(15).low }}
@@ -143,8 +136,9 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  h2(v-if="stage === 2")
-    | Experiment Finished
+  a.route(v-if="stage === 2 href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
+    h4
+      | Thank you for taking part in the evaluation. Please answer our short survey to complete the experiment.
 </template>
 
 <script lang="ts">
@@ -211,7 +205,6 @@ export default class Copyright extends Vue {
   private vocalRange: number = 50;
   private vocalTension: number = 50;
   private vocalTexture: number = 50;
-  private nonVocalInstruments: number = 50;
   private instrumentVocalOverlap: number = 50;
   private instrumentOverlap: number = 50;
   private instrumentToneBlend: number = 50;
@@ -239,7 +232,6 @@ export default class Copyright extends Vue {
     this.vocalRange = 50;
     this.vocalTension = 50;
     this.vocalTexture = 50;
-    this.nonVocalInstruments = 50;
     this.instrumentVocalOverlap = 50;
     this.instrumentToneBlend = 50;
     this.instrumentRhythmBlend = 50;
@@ -287,7 +279,6 @@ export default class Copyright extends Vue {
       vocal_range: this.vocalRange,
       vocal_tension: this.vocalTension,
       vocal_texture: this.vocalTexture,
-      non_vocal_instruments: this.nonVocalInstruments,
       instrument_vocal_overlap: this.instrumentVocalOverlap,
       instrument_overlap: this.instrumentOverlap,
       instrument_tone_blend: this.instrumentToneBlend,
