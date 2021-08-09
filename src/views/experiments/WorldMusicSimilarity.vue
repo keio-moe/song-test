@@ -40,9 +40,9 @@
   a.route(v-if="stage === 2 && flag === 0", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/0'")
     h4
       | ペア評価実験が終了いたしました。トリプル実験は、こちらへご覧ください。
-  a.route(v-if="stage === 2 && flag === 1", href="https://docs.google.com/forms/d/e/1FAIpQLSdpBNYxHR-noyTN75OtSyT45NPWusxT51mDlSgVPcekXQUnQg/viewform")
+  a.route(v-if="stage === 2  && flag === 0", :href="'/experiments/indianmusic/' + subtype +'/evaluation' + username + '/1'")
     h4
-      | トリプルとペア実験両方完成した場合、アンケートを記入してください。ご協力ありがとうございました。
+      | Both parts of the world music evaluation are over. When you are ready, please begin the Indian pop music evaluation experiment.
 </template>
 
 <script lang="ts">

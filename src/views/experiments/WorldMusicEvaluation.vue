@@ -113,10 +113,10 @@
           | {{ $t('submit') }}
   a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/0'")
     h2
-      | 要素評価実験が終了いたしました。ペア類似度評価実験はこちらです。
+      | The songwise evaluation section is over. When you are ready, please click to start the pairwise evaluation section of the experiment.
   a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/1'")
     h2
-      | 要素評価実験が終了いたしました。トリプル類似度評価実験はこちらです。
+      | The songwise evaluation section is over. When you are ready, please click to start the triplet evaluation section of the experiment.
 </template>
 
 <script lang="ts">
