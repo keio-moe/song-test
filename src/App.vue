@@ -3,6 +3,8 @@
   #nav
     router-link(to='/')
       | {{ $t("home") }}
+    router-link(to='/about')
+      | {{ $t("about") }}
     el-select.select(placeholder="🌐 Select Language", v-model="lang", @change="onLanguageChange")
       el-option(label="English", value="en-us")
       // el-option(label="हिंदी (WIP)", value="hi-in")
@@ -41,16 +43,21 @@ body
   color #2c3e50
 
 #nav
-  padding 30px
+  padding 1rem
   a
     font-weight bold
     font-size 1.8rem
     text-transform uppercase
     text-decoration none
     color #2c3e50
+    margin-right 1rem
     &.router-link-exact-active
       color #42b983
 
 .select
-  margin 0 0 0 20px
+  margin 0 auto
+  float none
+  @media screen and (min-width: 600px)
+    float right 
+
 </style>
