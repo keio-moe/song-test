@@ -20,38 +20,38 @@ interface RouteDefinition {
 export default class Home extends Vue {
   private routes: RouteDefinition[] = [
     {
-      title: 'indianMusic',
-      label: 'Indian Music Experiment',
-      src: '/experiments/indian_music_evaluation',
+      title: 'worldMusicWorkshop',
+      label: 'Start World Music Workshop',
+      src: '/experiments/worldmusic/workshop/evaluation',
     },
     {
-      title: 'aesthetics',
-      label: 'Aesthetics Experiment',
-      src: '/experiments/aesthetics',
+      title: 'indianMusic',
+      label: 'Start Indian Music Experiment',
+      src: '/experiments/indian_music_evaluation',
     },
+    // {
+    //   title: 'aesthetics',
+    //   label: 'Aesthetics Experiment',
+    //   src: '/experiments/aesthetics',
+    // },
     // {
     //   title: 'copyrightWorkshop',
     //   src: '/experiments/copyright/workshop',
     // },
-    {
-      title: 'copyrightFull',
-      label: 'Full Copyright',
-      src: '/experiments/copyright/full',
-    },
-    {
-      title: 'copyrightNewWorkshop',
-      label: 'New Copyright Workshop',
-      src: '/experiments/copyright/new_workshop',
-    },
+    // {
+    //   title: 'copyrightFull',
+    //   label: 'Full Copyright',
+    //   src: '/experiments/copyright/full',
+    // },
+    // {
+    //   title: 'copyrightNewWorkshop',
+    //   label: 'New Copyright Workshop',
+    //   src: '/experiments/copyright/new_workshop',
+    // },
     // {
     //   title: 'worldMusic',
     //   src: '/experiments/worldmusic/full/evaluation',
     // },
-    {
-      title: 'worldMusicWorkshop',
-      label: 'World Music Workshop',
-      src: '/experiments/worldmusic/workshop/evaluation',
-    },
     // {
     //   title: 'worldMusicWorkshopRank',
     //   src: '/experiments/worldmusic/workshop/rank',
@@ -71,7 +71,7 @@ export default class Home extends Vue {
 <style lang="stylus" scoped>
 .routes
   display flex
-  flex-direciton row
+  flex-direction row
   min-width 400px
   max-width 800px
   margin 0 auto
@@ -91,4 +91,8 @@ export default class Home extends Vue {
   a.route:hover
     background-color white
     color #42b983
+  @media screen and (max-width: 600px)
+    width 90vw
+    a.route
+      width 100%
 </style>
