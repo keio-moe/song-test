@@ -7,6 +7,8 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t("submit") }}
+      small
+        | Please click on the submit button. Hittinge 'Enter' will reload the page.
 </template>
 
 <script lang="ts">

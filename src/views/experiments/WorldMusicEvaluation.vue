@@ -13,11 +13,11 @@
             p.label
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
-        el-form-item(label="説明")
-          el-button(type="primary", @click="goToManual")
-            | 説明
     el-form.questionnaire(label-width="80px", label-position="top")
-      el-form-item(:label="$t('worldMusicFeature1')")
+      el-form-item(:label="$t('worldMusicFeature1')", style='')
+        small
+        | What kind of embellishment does the melody have?
+        br
         el-radio(v-model="decoration", :label="0")
           | {{ $t('worldMusicLow1') }}
         el-radio(v-model="decoration", :label="50")
@@ -25,6 +25,9 @@
         el-radio(v-model="decoration", :label="100")
           | {{ $t('worldMusicHigh1') }}
       el-form-item(:label="$t('worldMusicFeature2')")
+        small
+        | How much does this track make you want to dance?
+        br
         el-radio(v-model="groove", :label="0")
           | {{ $t('worldMusicLow2') }}
         el-radio(v-model="groove", :label="50")
@@ -32,6 +35,9 @@
         el-radio(v-model="groove", :label="100")
           | {{ $t('worldMusicHigh2') }}
       el-form-item(:label="$t('worldMusicFeature3')")
+        small
+        | How familiar are you with this track?
+        br
         el-radio(v-model="creativity", :label="0")
           | {{ $t('worldMusicLow3') }}
         el-radio(v-model="creativity", :label="50")
@@ -39,6 +45,9 @@
         el-radio(v-model="creativity", :label="100")
           | {{ $t('worldMusicHigh3') }}
       el-form-item(:label="$t('worldMusicFeature4')")
+        small
+        | How much do you like this track? 
+        br
         el-radio(v-model="likeness", :label="0")
           | {{ $t('worldMusicLow4') }}
         el-radio(v-model="likeness", :label="50")
@@ -46,6 +55,9 @@
         el-radio(v-model="likeness", :label="100")
           | {{ $t('worldMusicHigh4') }}
       el-form-item(:label="$t('worldMusicFeature5')")
+        small
+        | How pleasant is this track to your ears?
+        br
         el-radio(v-model="consonance", :label="0")
           | {{ $t('worldMusicLow5') }}
         el-radio(v-model="consonance", :label="50")
@@ -53,6 +65,9 @@
         el-radio(v-model="consonance", :label="100")
           | {{ $t('worldMusicHigh5') }}
       el-form-item(:label="$t('worldMusicFeature6')")
+        small
+        | Does this track make you feel positive or negative emotions?
+        br
         el-radio(v-model="emotion", :label="0")
           | {{ $t('worldMusicLow6') }}
         el-radio(v-model="emotion", :label="50")
@@ -60,6 +75,9 @@
         el-radio(v-model="emotion", :label="100")
           | {{ $t('worldMusicHigh6') }}
       el-form-item(:label="$t('worldMusicFeature7')")
+        small
+        | How much does this track excite you? 
+        br
         el-radio(v-model="excitingness", :label="0")
           | {{ $t('worldMusicLow7') }}
         el-radio(v-model="excitingness", :label="50")
@@ -67,6 +85,9 @@
         el-radio(v-model="excitingness", :label="100")
           | {{ $t('worldMusicHigh7') }}
       el-form-item(:label="$t('worldMusicFeature8')")
+        small
+        | How widely does this song vary between a high and a low pitch?
+        br
         el-radio(v-model="range", :label="0")
           | {{ $t('worldMusicLow8') }}
         el-radio(v-model="range", :label="50")
@@ -74,6 +95,9 @@
         el-radio(v-model="range", :label="100")
           | {{ $t('worldMusicHigh8') }}
       el-form-item(:label="$t('worldMusicFeature9')")
+        small
+        | How good or bad is the sound quality of this track?
+        br
         el-radio(v-model="quality", :label="0")
           | {{ $t('worldMusicLow9') }}
         el-radio(v-model="quality", :label="50")
@@ -81,6 +105,9 @@
         el-radio(v-model="quality", :label="100")
           | {{ $t('worldMusicHigh9') }}
       el-form-item(:label="$t('worldMusicFeature10')")
+        small
+        | How fast or slow is the track?
+        br
         el-radio(v-model="tempo", :label="0")
           | {{ $t('worldMusicLow10') }}
         el-radio(v-model="tempo", :label="50")
@@ -88,6 +115,9 @@
         el-radio(v-model="tempo", :label="100")
           | {{ $t('worldMusicHigh10') }}
       el-form-item(:label="$t('worldMusicFeature11')")
+        small
+        | How regular is the rhyhthm?
+        br
         el-radio(v-model="rhythm", :label="0")
           | {{ $t('worldMusicLow11') }}
         el-radio(v-model="rhythm", :label="50")
@@ -95,6 +125,9 @@
         el-radio(v-model="rhythm", :label="100")
           | {{ $t('worldMusicHigh11') }}
       el-form-item(:label="$t('worldMusicFeature12')")
+        small
+        | How many voices do you hear at once?
+        br
         el-radio(v-model="timbre", :label="0")
           | {{ $t('worldMusicLow12') }}
         el-radio(v-model="timbre", :label="50")
@@ -102,6 +135,9 @@
         el-radio(v-model="timbre", :label="100")
           | {{ $t('worldMusicHigh12') }}
       el-form-item(:label="$t('worldMusicFeature13')")
+        small
+        | How many voices do you hear at once?
+        br
         el-radio(v-model="overlap", :label="0")
           | {{ $t('worldMusicLow13') }}
         el-radio(v-model="overlap", :label="50")
@@ -286,14 +322,11 @@ export default class Copyright extends Vue {
 .progress
   margin-top 12px
 .label
-  font-weight bold
+  font-weight 700
 .route
   text-align center
   display block
   margin 40px 0
   font-size 24px
   color #42b983
-.questionnaire
-  height 36vh
-  overflow-y scroll
 </style>
