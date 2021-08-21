@@ -1,12 +1,16 @@
 <template lang='pug'>
 .home
   .pdf
-    iframe.file(src='/Experiment Consent Form.pdf')
+    iframe.file(src="/Experiment Consent Form.pdf")
   .v-checkbox
-    input(type='checkbox' v-on:click='setActive(0)')
+    input(type="checkbox", v-on:click="setActive(0)")
     .v-label I agree to the terms and conditions of mentioned above.
   .routes
-    a.route(v-for='route in routes', :href='route.src' v-if='route.active==true')
+    a.route(
+      v-for="route in routes",
+      :href="route.src",
+      v-if="route.active == true"
+    )
       | {{ $t(route.label) }}
 </template>
 
@@ -31,6 +35,12 @@ export default class Home extends Vue {
       src: '/experiments/worldmusic/workshop/evaluation',
       active: false,
     },
+    {
+      title: 'indianMusic',
+      label: 'Start Indian Music Experiment',
+      src: '/experiments/indian_music_evaluation',
+      active: false
+    },
   ];
   private setActive(route: number) {
     this.routes[route].active = !this.routes[route].active;
@@ -50,10 +60,10 @@ export default class Home extends Vue {
   }
 }
 
-.v-checkbox{
+.v-checkbox {
   display: flex;
   margin: 0 auto 2rem auto;
-  justify-content center;
+  justify-content: center;
 }
 
 .routes {

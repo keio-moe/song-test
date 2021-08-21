@@ -14,119 +14,170 @@
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
     el-form.questionnaire(label-width="100px", size="medium", label-position="top")
-      el-form-item(:label="formModel(1).feature", title="What kind of embellishment does the melody have? " class="form-label")
+      el-form-item(:label="formModel(1).feature", class="form-label")
+        small
+        | What kind of embellishment does the melody have?
+        br         
         el-radio(v-model="ornamentation", :label="0")
           | {{ formModel(1).low }}
         el-radio(v-model="ornamentation", :label="50")
           | {{ formModel(1).medium }}
         el-radio(v-model="ornamentation", :label="100")
           | {{ formModel(1).high }}
-      el-form-item(:label="formModel(2).feature", title="How much does this track make you want to dance?" class="form-label")
+      el-form-item(:label="formModel(2).feature", class="form-label")
+        small
+        | How much does this track make you want to dance?
+        br
         el-radio(v-model="grooviness", :label="0")
           | {{ formModel(2).low }}
         el-radio(v-model="grooviness", :label="50")
           | {{ formModel(2).medium }}
         el-radio(v-model="grooviness", :label="100")
           | {{ formModel(2).high }}
-      el-form-item(:label="formModel(3).feature", title="How familiar are you with this track?" class="form-label")
+      el-form-item(:label="formModel(3).feature", class="form-label")
+        small
+        | How familiar are you with this track?
+        br
         el-radio(v-model="familiarity", :label="0")
           | {{ formModel(3).low }}
         el-radio(v-model="familiarity", :label="50")
           | {{ formModel(3).medium }}
         el-radio(v-model="familiarity", :label="100")
           | {{ formModel(3).high }}
-      el-form-item(:label="formModel(4).feature", title="How much do you like this track? " class="form-label")
+      el-form-item(:label="formModel(4).feature", class="form-label")
+        small
+        | How much do you like this track?
+        br
         el-radio(v-model="liking", :label="0")
           | {{ formModel(4).low }}
         el-radio(v-model="liking", :label="50")
           | {{ formModel(4).medium }}
         el-radio(v-model="liking", :label="100")
           | {{ formModel(4).high }}
-      el-form-item(:label="formModel(5).feature", title="How pleasant is this track to your ears? " class="form-label")
+      el-form-item(:label="formModel(5).feature", class="form-label")
+        small
+        | How pleasant is this track to your ears? 
+        br
         el-radio(v-model="consonance", :label="0")
           | {{ formModel(5).low }}
         el-radio(v-model="consonance", :label="50")
           | {{ formModel(5).medium }}
         el-radio(v-model="consonance", :label="100")
           | {{ formModel(5).high }}
-      el-form-item(:label="formModel(6).feature" , title="Does this track make you feel positive or negative emotions?" class="form-label")
+      el-form-item(:label="formModel(6).feature" ,  class="form-label")
+        small
+        | Does this track make you feel positive or negative emotions?
+        br
         el-radio(v-model="valence", :label="0")
           | {{ formModel(6).low }}
         el-radio(v-model="valence", :label="50")
           | {{ formModel(6).medium }}
         el-radio(v-model="valence", :label="100")
           | {{ formModel(6).high }}
-      el-form-item(:label="formModel(7).feature", title="How much does this track excite you? " class="form-label")
+      el-form-item(:label="formModel(7).feature",  class="form-label")
+        small
+        | How much does this track excite you?
+        br
         el-radio(v-model="excitement", :label="0")
           | {{ formModel(7).low }}
         el-radio(v-model="excitement", :label="50")
           | {{ formModel(7).medium }}
         el-radio(v-model="excitement", :label="100")
           | {{ formModel(7).high }}
-      el-form-item(:label="formModel(8).feature", title="How widely does this song vary between a high and a low pitch?" class="form-label")
+      el-form-item(:label="formModel(8).feature",  class="form-label")
+        small
+        | How widely does this song vary between a high and a low pitch?
+        br
         el-radio(v-model="vocalRange", :label="0")
           | {{ formModel(8).low }}
         el-radio(v-model="vocalRange", :label="50")
           | {{ formModel(8).medium }}
         el-radio(v-model="vocalRange", :label="100")
           | {{ formModel(8).high }}
-      el-form-item(:label="formModel(9).feature", title="How good or bad is the sound quality of this track?" class="form-label")
+      el-form-item(:label="formModel(9).feature",  class="form-label")
+        small
+        | How good or bad is the sound quality of this track?
+        br
         el-radio(v-model="soundQuality", :label="0")
           | {{ formModel(9).low }}
         el-radio(v-model="soundQuality", :label="50")
           | {{ formModel(9).medium }}
         el-radio(v-model="soundQuality", :label="100")
           | {{ formModel(9).high }}
-      el-form-item(:label="formModel(10).feature", title="How fast or slow is the track?" class="form-label")
+      el-form-item(:label="formModel(10).feature",  class="form-label")
+        small
+        | How fast or slow is the track?
+        br
         el-radio(v-model="tempo", :label="0")
           | {{ formModel(10).low }}
         el-radio(v-model="tempo", :label="50")
           | {{ formModel(10).medium }}
         el-radio(v-model="tempo", :label="100")
           | {{ formModel(10).high }}
-      el-form-item(:label="formModel(11).feature", title="How regular is the rhyhthm? " class="form-label")
+      el-form-item(:label="formModel(11).feature",  class="form-label")
+        small
+        | How regular is the rhyhthm? 
+        br
         el-radio(v-model="rhythmicRegularity", :label="0")
           | {{ formModel(11).low }}
         el-radio(v-model="rhythmicRegularity", :label="50")
           | {{ formModel(11).medium }}
         el-radio(v-model="rhythmicRegularity", :label="100")
           | {{ formModel(11).high }}
-      el-form-item(:label="formModel(12).feature", title="How much tension do you hear in the voice of the singer?" class="form-label")
+      el-form-item(:label="formModel(12).feature",  class="form-label")
+        small
+        | How much tension do you hear in the voice of the singer?
+        br
         el-radio(v-model="vocalTension", :label="0")
           | {{ formModel(12).low }}
         el-radio(v-model="vocalTension", :label="50")
           | {{ formModel(12).medium }}
         el-radio(v-model="vocalTension", :label="100")
           | {{ formModel(12).high }}
-      el-form-item(:label="formModel(13).feature", title="How many voices do you hear at once?" class="form-label")
+      el-form-item(:label="formModel(13).feature",  class="form-label")
+        small
+        | How many voices do you hear at once?
+        br
         el-radio(v-model="vocalTexture", :label="0")
           | {{ formModel(13).low }}
         el-radio(v-model="vocalTexture", :label="50")
           | {{ formModel(13).medium }}
         el-radio(v-model="vocalTexture", :label="100")
           | {{ formModel(13).high }}
-      el-form-item(:label="formModel(15).feature", title="Do the instrumentals and vocals play the same melody? " class="form-label")
+      el-form-item(:label="formModel(15).feature",  class="form-label")
+        small
+        | Do the instrumentals and vocals play the same melody? 
+        br
         el-radio(v-model="instrumentVocalOverlap", :label="0")
           | {{ formModel(15).low }}
         el-radio(v-model="instrumentVocalOverlap", :label="50")
           | {{ formModel(15).medium }}
         el-radio(v-model="instrumentVocalOverlap", :label="100")
           | {{ formModel(15).high }}
-      el-form-item(:label="formModel(16).feature", title="How many instruments are playing at the same time?" class="form-label")
+      el-form-item(:label="formModel(16).feature",  class="form-label")
+        small
+        | How many instruments are playing at the same time?
+        br
         el-radio(v-model="instrumentOverlap", :label="0")
           | {{ formModel(16).low }}
         el-radio(v-model="instrumentOverlap", :label="50")
           | {{ formModel(16).medium }}
         el-radio(v-model="instrumentOverlap", :label="100")
           | {{ formModel(16).high }}
-      el-form-item(:label="formModel(17).feature", title="How well are the different timbres of the instruments blended" class="form-label")
+      el-form-item(:label="formModel(17).feature",  class="form-label")
+        small
+        | How well are the different timbres of the instruments blended
+        br
         el-radio(v-model="instrumentToneBlend", :label="0")
           | {{ formModel(17).low }}
         el-radio(v-model="instrumentToneBlend", :label="50")
           | {{ formModel(17).medium }}
         el-radio(v-model="instrumentToneBlend", :label="100")
           | {{ formModel(17).high }}
-      el-form-item(:label="formModel(18).feature", title="How well are the different rhythms of the instruments blended" class="form-label")
+      el-form-item(:label="formModel(18).feature",  class="form-label")
+        small
+        | How well are the different rhythms of the instruments blended
+        br
         el-radio(v-model="instrumentRhythmBlend", :label="0")
           | {{ formModel(18).low }}
         el-radio(v-model="instrumentRhythmBlend", :label="50")
@@ -315,9 +366,14 @@ export default class Copyright extends Vue {
 .route
   text-align center
   display block
-  margin 40px 0
-  font-size 24px
-  color #42b983
+  width 50rem
+  padding 1rem
+  border-radius 5px
+  margin 3rem auto
+  background-color #42b983
+  color white
+  text-decoration none
+  cursor pointer
 .form-label
   font-weight bold
   font-size 30px

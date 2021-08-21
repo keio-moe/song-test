@@ -14,7 +14,7 @@
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
     el-form.questionnaire(label-width="80px", label-position="top")
-      el-form-item(:label="$t('worldMusicFeature1')", style='')
+      el-form-item(:label="$t('worldMusicFeature1')")
         small
         | What kind of embellishment does the melody have?
         br
@@ -148,10 +148,10 @@
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
   a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/0'")
-    h2
+    h2.explanation
       | The songwise evaluation section is over. When you are ready, please click to start the pairwise evaluation section of the experiment.
   a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/1'")
-    h2
+    h2.explanation
       | The songwise evaluation section is over. When you are ready, please click to start the triplet evaluation section of the experiment.
 </template>
 
@@ -326,7 +326,14 @@ export default class Copyright extends Vue {
 .route
   text-align center
   display block
-  margin 40px 0
-  font-size 24px
-  color #42b983
+  width 50rem
+  padding 1rem
+  border-radius 5px
+  margin 3rem auto
+  background-color #42b983
+  color white
+  text-decoration none
+  cursor pointer
+.explanation
+  font-size 1.5rem
 </style>
