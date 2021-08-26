@@ -114,7 +114,7 @@
   a.route(v-if="stage === 2 && random === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/0'")
     h2
       | The songwise evaluation section is over. When you are ready, please click to start the pairwise evaluation section of the experiment.
-  a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/1'")
+  a.route(v-if="stage === 2 && random === 1", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/0'")
     h2
       | The songwise evaluation section is over. When you are ready, please click to start the triplet evaluation section of the experiment.
 </template>

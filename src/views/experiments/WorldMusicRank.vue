@@ -22,10 +22,10 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
-  a.route(v-if="stage === 2 && flag === 1", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/1'")
+  a.route(v-if="stage === 2 && flag === 0", :href="'/experiments/worldmusic/' + subtype + '/similarity/' + username + '/1'")
     h4
       | The triplet experiment is over. When you are ready, please begin the pairwise evlauation section.
-  a.route(v-if="stage === 2  && flag === 0", :href="'/experiments/indianmusic/' + subtype +'/evaluation' + username + '/1'")
+  a.route(v-if="stage === 2  && flag === 1", :href="'/experiments/indianmusic/' + subtype + '/evaluation'")
     h4
       | Both parts of the world music evaluation are over. When you are ready, please begin the Indian pop music evaluation experiment.
 </template>
