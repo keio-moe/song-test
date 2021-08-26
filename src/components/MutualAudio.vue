@@ -1,5 +1,5 @@
 <template lang="pug">
-audio.audio(:controls="controls", @play="onPlay", @end="onEnd")
+audio.audio(:controls="controls", @play="onPlay", @end="onEnd" loop=true)
   source(:src="src", :type="type")
 </template>
 

@@ -12,7 +12,7 @@
               | {{ wav.label }}:
             mutual-audio(controls, :src="wav.entity" type="audio/mpeg")
     el-form(label-width="80px", label-position="top")
-      el-form-item(label="最も違う曲を選んでください")
+      el-form-item(label="Please pick the odd one out")
         el-radio(v-model="rank" :label="0")
           | A
         el-radio(v-model="rank" :label="1")
@@ -167,7 +167,12 @@ export default class WorldMusicRank extends Vue {
 .route
   text-align center
   display block
-  margin 40px 0
-  font-size 24px
-  color #42b983
+  width 50rem
+  padding 1rem
+  border-radius 5px
+  margin 3rem auto
+  background-color #42b983
+  color white
+  text-decoration none
+  cursor pointer
 </style>

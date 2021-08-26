@@ -25,21 +25,21 @@
           | {{ $t('similar4') }}
       el-form-item(:label="$t('likeness')")
         el-radio(v-model="likeness", :label="0")
-          | Aの方が非常に好き
+          | I like A a lot more than B
         el-radio(v-model="likeness", :label="25")
-          | Aの方が少し好き
+          | I like A a little more than B
         el-radio(v-model="likeness", :label="50")
-          | どちらとも言えない
+          | I like both A and B just the same
         el-radio(v-model="likeness", :label="75")
-          | Bの方が少し好き
+          | I like B a little more than A
         el-radio(v-model="likeness", :label="100")
-          | Bの方が非常に好き
+          | I like B a lot more than A
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t('submit') }}
   a.route(v-if="stage === 2 && flag === 0", :href="'/experiments/worldmusic/' + subtype + '/rank/' + username + '/1'")
     h4
-      | The pairwise experiment is over. When you are ready, please begin the triplet evlauation section.
+      | The pairwise evaluation experiment is over. When you are ready, please proceed to the triplet evaluation section.
   a.route(v-if="stage === 2  && flag === 1", :href="'/experiments/indianmusic/' + subtype +'/evaluation'")
     h4
       | Both parts of the world music evaluation are over. When you are ready, please begin the Indian pop music evaluation experiment.
@@ -179,7 +179,12 @@ export default class Copyright extends Vue {
 .route
   text-align center
   display block
-  margin 40px 0
-  font-size 24px
-  color #42b983
+  width 50rem
+  padding 1rem
+  border-radius 5px
+  margin 3rem auto
+  background-color #42b983
+  color white
+  text-decoration none
+  cursor pointer
 </style>

@@ -7,6 +7,11 @@
       el-form-item
         el-button(type="primary", @click="onSubmit")
           | {{ $t("submit") }}
+      small
+        | Please 
+        strong
+          | click
+        |  on the submit button. Hitting 'Enter' will reload the page.
 </template>
 
 <script lang="ts">
@@ -82,5 +87,5 @@ export default class CreateExperiment extends Vue {
 <style lang="stylus" scoped>
 .card
   width 70%
-  margin 0 15%
+  margin 0 15% 3rem 15%
 </style>
